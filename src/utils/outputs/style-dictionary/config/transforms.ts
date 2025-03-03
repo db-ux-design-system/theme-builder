@@ -18,6 +18,6 @@ export const SemanticColorsTransform: Transform = {
       lightVar = `color-mix(in srgb, transparent ${token.value.transparencyLight}%, ${lightVar})`;
     }
 
-    return `light-dark(${lightVar},${darkVar});`;
+    return `light-dark(${lightVar},${darkVar})`;
   },
 };
