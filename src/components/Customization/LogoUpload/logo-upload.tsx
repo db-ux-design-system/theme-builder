@@ -13,10 +13,7 @@ const LogoUpload = memo(() => {
     <div className="flex flex-col gap-fix-md">
       <h5>{t("logo")}</h5>
       <div className="flex gap-fix-md">
-        <div
-          className="flex flex-col gap-fix-md p-fix-sm"
-          data-mode="light"
-        >
+        <div className="flex flex-col gap-fix-md p-fix-sm" data-mode="light">
           <DBInfotext icon="sun">Light</DBInfotext>
           <img
             className="h-siz-md mx-auto"
@@ -44,10 +41,7 @@ const LogoUpload = memo(() => {
           />
         </div>
         <DBDivider margin="none" variant="vertical" />
-        <div
-          className="flex flex-col gap-fix-md p-fix-sm"
-          data-mode="dark"
-        >
+        <div className="flex flex-col gap-fix-md p-fix-sm" data-mode="dark">
           <DBInfotext icon="moon">Dark</DBInfotext>
           <img
             className="h-siz-md mx-auto"
