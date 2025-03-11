@@ -16,4 +16,4 @@ updates:
     ignore:
       # We currently need to ignore eslint@v9
       - dependency-name: "eslint"
-        update-types: [ "version-update:semver-major" ]
+        update-types: ["version-update:semver-major"]
