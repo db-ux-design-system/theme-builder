@@ -173,12 +173,14 @@ export const getPaletteOutput = (
     });
 
     result[`--${prefix}-${name}-origin`] = color.origin;
-    result[`--${prefix}-${name}-origin-light-default`] = color.originLightDefault;
+    result[`--${prefix}-${name}-origin-light-default`] =
+      color.originLightDefault;
     result[`--${prefix}-${name}-origin-light-hovered`] =
       color.originLightHovered;
     result[`--${prefix}-${name}-origin-light-pressed`] =
       color.originLightPressed;
-    result[`--${prefix}-${name}-on-origin-light-default`] = color.onOriginLightDefault;
+    result[`--${prefix}-${name}-on-origin-light-default`] =
+      color.onOriginLightDefault;
     result[`--${prefix}-${name}-on-origin-light-hovered`] =
       color.onOriginLightHovered;
     result[`--${prefix}-${name}-on-origin-light-pressed`] =
@@ -187,7 +189,8 @@ export const getPaletteOutput = (
     result[`--${prefix}-${name}-origin-dark-default`] = color.originDarkDefault;
     result[`--${prefix}-${name}-origin-dark-hovered`] = color.originDarkHovered;
     result[`--${prefix}-${name}-origin-dark-pressed`] = color.originDarkPressed;
-    result[`--${prefix}-${name}-on-origin-dark-default`] = color.onOriginDarkDefault;
+    result[`--${prefix}-${name}-on-origin-dark-default`] =
+      color.onOriginDarkDefault;
     result[`--${prefix}-${name}-on-origin-dark-hovered`] =
       color.onOriginDarkHovered;
     result[`--${prefix}-${name}-on-origin-dark-pressed`] =
