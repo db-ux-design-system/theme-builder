@@ -1,7 +1,7 @@
 import { defaultLuminances, HeisslufType } from "./data.ts";
 import { Hsluv } from "hsluv";
 import chroma from "chroma-js";
-import {FALLBACK_COLOR} from "../constants.ts";
+import { FALLBACK_COLOR } from "../constants.ts";
 
 export const getValidPaletteColorAsHex = (
   brandColors: HeisslufType[],

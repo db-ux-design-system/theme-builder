@@ -22,7 +22,8 @@ $selected-outline-height: 3px;
   .drop-container,
   .drag-container {
     --db-current-icon-color: #{colors.$db-adaptive-on-bg-basic-emphasis-100-default};
-    background-image: linear-gradient(
+    background-image:
+      linear-gradient(
         #{colors.$db-adaptive-bg-basic-level-1-default},
         #{colors.$db-adaptive-bg-basic-level-1-default}
       ),
