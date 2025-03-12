@@ -7,10 +7,10 @@ export default {
   theme: {
     ...tokens,
     gap: ({ theme }) => ({
-      ...theme("spacing")
+      ...theme("spacing"),
     }),
     space: ({ theme }) => ({
-      ...theme("spacing")
-    })
-  }
+      ...theme("spacing"),
+    }),
+  },
 };
