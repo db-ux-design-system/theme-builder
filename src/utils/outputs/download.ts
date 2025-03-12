@@ -94,7 +94,13 @@ export const downloadTheme = async (
     .forEach((file) => {
       zip.file(`${sdFolder}${file.name}`, file);
     });
-  zip.file(`${sdFolder}/sd.config.json`, JSON.stringify(finalTheme));
+
+  const sdConfig = { ...finalTheme };
+  delete sdConfig.branding;
+  delete sdConfig.colors;
+  delete sdConfig.customColors;
+  delete sdConfig.additionalColors;
+  zip.file(`${sdFolder}/sd.config.json`, JSON.stringify(sdConfig));
 
   //Android
   const androidFolder: string = "Android";
