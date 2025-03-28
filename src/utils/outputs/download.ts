@@ -1,6 +1,5 @@
 import JSZip from "jszip";
 import { DefaultColorType, SpeakingName, ThemeType } from "../data.ts";
-import { generateReadmeFile } from "./web/readme.ts";
 import { generateBrandThemeFile, generateThemeFile } from "./compose/theme.ts";
 import {
   generateColorScheme,
@@ -18,20 +17,24 @@ import {
 import { generateDensityEnumFile } from "./compose/density.ts";
 import { getSketchColorsAsString } from "./sketch.ts";
 import { getFontFaces } from "./web/fonts.ts";
-import { kebabCase } from "../index.ts";
-import {
-  getCssPropertyAsString,
-  getTypedCssPropertyAsString,
-  getCssThemeProperties,
-  getFullColorCss,
-  getPaletteOutput,
-  getSpeakingNames,
-} from "./index.ts";
+import { kebabCase, mergeObjectsRecursive } from "../index.ts";
 import { generateCustomColorClass } from "./web/custom-color-class.ts";
 import { generateAndroidReadmeFile } from "./compose/readme.ts";
+import {
+  convertDirectoryJsonToFiles,
+  deleteUnusedProps,
+  getSabStyleDictionary,
+  runStyleDictionary,
+} from "./style-dictionary";
 import { generateComposeElevationFile } from "./compose/elevation.ts";
 import { designSystemName, designSystemShortName } from "./compose/shared.ts";
 import { getAutoCompleteFile } from "./web/auto-complete";
+import {
+  getSDColorPalette,
+  getSDSpeakingColors,
+} from "./style-dictionary/colors.ts";
+import { platformsConfig } from "./style-dictionary/config";
+import { getSDBaseIconProps } from "./style-dictionary/typography.ts";
 
 const download = (fileName: string, file: Blob) => {
   const element = document.createElement("a");
@@ -64,13 +67,46 @@ export const downloadTheme = async (
 
   const fileName = (theme.branding.name || `default-theme`) + "Theme";
   const themeJsonString = JSON.stringify(theme);
-  const themeProperties = getCssThemeProperties(theme);
 
   const brandName = kebabCase(theme.branding.name);
   const composeFileName = kebabCase(fileName);
 
   const zip = new JSZip();
   zip.file(`${fileName}.json`, themeJsonString);
+
+  // Style dictionary
+
+  const sdColorPalette = getSDColorPalette(allColors, luminanceSteps);
+  const sdSpeakingColors = getSDSpeakingColors(speakingNames, allColors);
+
+  const finalTheme = {
+    ...getSDBaseIconProps(theme),
+    ...theme,
+    ...mergeObjectsRecursive(sdColorPalette, sdSpeakingColors),
+  };
+
+  const sdFolder: string = "StyleDictionary";
+  const directoryJSON = await runStyleDictionary({
+    tokens: finalTheme,
+    ...platformsConfig,
+  });
+  const files: File[] = convertDirectoryJsonToFiles(directoryJSON);
+  files
+    .filter((file) => file.name.includes("."))
+    .forEach((file) => {
+      zip.file(`${sdFolder}${file.name}`, file);
+    });
+
+  const defaultConfig = { ...finalTheme };
+  deleteUnusedProps(defaultConfig);
+  zip.file(`${sdFolder}/default.config.json`, JSON.stringify(defaultConfig));
+
+  zip.file(
+    `${sdFolder}/sab.config.json`,
+    JSON.stringify(
+      getSabStyleDictionary(theme, sdColorPalette, sdSpeakingColors),
+    ),
+  );
 
   //Android
   const androidFolder: string = "Android";
@@ -134,24 +170,6 @@ export const downloadTheme = async (
 
   // Web
   const webFolder: string = "Web";
-
-  zip.file(`${webFolder}/${fileName}-theme.css`, themeProperties);
-
-  const colorsPalette = getTypedCssPropertyAsString(
-    getPaletteOutput(allColors, luminanceSteps),
-    "color",
-  );
-  const colorSpeakingNames = getCssPropertyAsString(
-    getSpeakingNames(speakingNames, allColors),
-    true,
-  );
-  zip.file(
-    `${webFolder}/${fileName}-colors-full.css`,
-    getFullColorCss(colorsPalette, colorSpeakingNames),
-  );
-  zip.file(`${webFolder}/${fileName}-palette.css`, colorsPalette);
-  zip.file(`${webFolder}/${fileName}-speaking-names.css`, colorSpeakingNames);
-  zip.file(`${webFolder}/README.md`, generateReadmeFile(fileName));
   zip.file(
     `${webFolder}/auto-complete/${fileName}.ide.css`,
     getAutoCompleteFile(allColors),
@@ -160,16 +178,6 @@ export const downloadTheme = async (
   // Custom Colors
   if (theme.customColors) {
     const customColorsFolder: string = "Custom Colors";
-
-    const customColorsPalette = getTypedCssPropertyAsString(
-      getPaletteOutput(theme.customColors, luminanceSteps),
-      "color",
-    );
-
-    const customColorsSpeakingNames = getCssPropertyAsString(
-      getSpeakingNames(speakingNames, theme.customColors),
-      true,
-    );
 
     let allCustomColorClasses = "";
     for (const colorName of Object.keys(theme.customColors)) {
@@ -184,21 +192,6 @@ export const downloadTheme = async (
     zip.file(
       `${webFolder}/${customColorsFolder}/classes/all.css`,
       allCustomColorClasses,
-    );
-
-    zip.file(
-      `${webFolder}/${customColorsFolder}/${fileName}-custom-colors-full.css`,
-      getFullColorCss(customColorsPalette, customColorsSpeakingNames),
-    );
-
-    zip.file(
-      `${webFolder}/${customColorsFolder}/${fileName}-custom-colors-palette.css`,
-      customColorsPalette,
-    );
-
-    zip.file(
-      `${webFolder}/${customColorsFolder}/${fileName}-speaking-names-custom-colors.css`,
-      customColorsSpeakingNames,
     );
   }
 

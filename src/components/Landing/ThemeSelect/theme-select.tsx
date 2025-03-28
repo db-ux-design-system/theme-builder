@@ -15,14 +15,8 @@ import {
   ThemeType,
   speakingNamesDefaultMapping,
 } from "../../../utils/data.ts";
-import DefaultTheme from "../../../data/default-theme.json";
-import DBTheme from "../../../data/db-theme.json";
-import SBahnTheme from "../../../data/sbahn-theme.json";
 import { getThemeImage } from "../../../utils";
-
-const defaultTheme = DefaultTheme as unknown as ThemeType;
-const sBahnTheme = SBahnTheme as unknown as ThemeType;
-const dbTheme = DBTheme as unknown as ThemeType;
+import { dbTheme, defaultTheme, sBahnTheme } from "../../../store/themes.ts";
 
 const themes: Record<string, ThemeType> = {
   neutralTheme: defaultTheme,
