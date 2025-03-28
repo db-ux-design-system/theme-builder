@@ -22,6 +22,8 @@ import { generateCustomColorClass } from "./web/custom-color-class.ts";
 import { generateAndroidReadmeFile } from "./compose/readme.ts";
 import {
   convertDirectoryJsonToFiles,
+  deleteUnusedProps,
+  getSabStyleDictionary,
   runStyleDictionary,
 } from "./style-dictionary";
 import { generateComposeElevationFile } from "./compose/elevation.ts";
@@ -95,12 +97,16 @@ export const downloadTheme = async (
       zip.file(`${sdFolder}${file.name}`, file);
     });
 
-  const sdConfig = { ...finalTheme };
-  delete sdConfig.branding;
-  delete sdConfig.colors;
-  delete sdConfig.customColors;
-  delete sdConfig.additionalColors;
-  zip.file(`${sdFolder}/sd.config.json`, JSON.stringify(sdConfig));
+  const defaultConfig = { ...finalTheme };
+  deleteUnusedProps(defaultConfig);
+  zip.file(`${sdFolder}/default.config.json`, JSON.stringify(defaultConfig));
+
+  zip.file(
+    `${sdFolder}/sab.config.json`,
+    JSON.stringify(
+      getSabStyleDictionary(theme, sdColorPalette, sdSpeakingColors),
+    ),
+  );
 
   //Android
   const androidFolder: string = "Android";

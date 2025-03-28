@@ -1,4 +1,4 @@
-import { ThemeType } from "../../data.ts";
+import { ThemeTonalities, ThemeType } from "../../data.ts";
 import traverse from "traverse";
 import { setObjectByPath } from "./colors.ts";
 
@@ -43,4 +43,35 @@ export const getSDBaseIconProps = (theme: ThemeType): any => {
       },
     },
   };
+};
+
+const typographyKeys: string[] = ["lineHeight", "fontSize", "fontFamily"];
+
+export const traverseSABTypography = (typography: ThemeTonalities) => {
+  const updatedValue: any = {
+    lineHeight: {},
+    fontSize: {},
+    fontFamily: {},
+  };
+  const trav = traverse(typography);
+  trav.map(function (value) {
+    if (this.path.length === 3) {
+      Object.entries(value).forEach(([key, val]) => {
+        typographyKeys.forEach((typoKey) => {
+          try {
+            setObjectByPath(
+              updatedValue[typoKey],
+              [...this.path, key].join("."),
+              {
+                value: (val as any).value[typoKey],
+              },
+            );
+          } catch (error) {
+            console.error(error);
+          }
+        });
+      });
+    }
+  });
+  return updatedValue;
 };
