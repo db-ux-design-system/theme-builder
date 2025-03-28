@@ -17,3 +17,12 @@ updates:
       # We currently need to ignore eslint@v9
       - dependency-name: "eslint"
         update-types: ["version-update:semver-major"]
+    groups:
+      typescript-eslint:
+        patterns:
+          - "@typescript-eslint*"
+          - "typescript-eslint"
+        update-types:
+          - "major"
+          - "minor"
+          - "patch"
