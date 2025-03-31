@@ -47,7 +47,7 @@
     "react": "^18.3.0",
     "react-ace": "13.0.0",
     "react-dom": "^18.3.1",
-    "react-i18next": "15.4.0",
+    "react-i18next": "15.4.1",
     "react-router-dom": "7.1.5",
     "style-dictionary": "^4.3.3",
     "traverse": "^0.6.10",
