@@ -188,7 +188,7 @@ export type ThemeType = {
 };
 
 export const defaultLuminances: number[] = [
-  2, 4, 6, 10, 20, 30, 40, 50, 60, 70, 80, 90, 94, 96, 98,
+  4, 8, 14, 20, 26, 32, 40, 50, 60, 70, 80, 90, 94, 96, 98,
 ];
 
 export type HeisslufType = {
@@ -278,4 +278,10 @@ export const speakingNamesDefaultMapping: SpeakingName[] = [
   { name: "on-bg-inverted-default", dark: 3, light: 14 },
   { name: "on-bg-inverted-hovered", dark: 4, light: 13 },
   { name: "on-bg-inverted-pressed", dark: 5, light: 12 },
+  { name: "bg-vibrant-default", dark: 9, light: 9 },
+  { name: "bg-vibrant-hovered", dark: 10, light: 10 },
+  { name: "bg-vibrant-pressed", dark: 11, light: 11 },
+  { name: "on-bg-vibrant-default", dark: 1, light: 1 },
+  { name: "on-bg-vibrant-hovered", dark: 3, light: 3 },
+  { name: "on-bg-vibrant-pressed", dark: 4, light: 4 },
 ];

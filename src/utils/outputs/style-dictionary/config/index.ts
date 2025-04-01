@@ -60,7 +60,8 @@ export const platformsConfig: Config = {
         },
       ],
     },
-    semanticColorProperties: {
+    // Currently @property isn't supporting var() as initial-value
+/*    semanticColorProperties: {
       prefix: "db",
       transformGroup: "custom/css",
       files: [
@@ -70,6 +71,6 @@ export const platformsConfig: Config = {
           filter: (token: TransformedToken) => semanticColorFilter(token),
         },
       ],
-    },
+    },*/
   },
 };
