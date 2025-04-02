@@ -13,7 +13,7 @@ const Sizing = () => (
           style={{
             width: `var(--db-spacing-fixed-${name})`,
             height: `var(--db-spacing-fixed-${name})`,
-            border: `var(--db-border-height-3xs) solid var(--db-adaptive-on-bg-basic-emphasis-60-default)`,
+            border: `var(--db-border-width-3xs) solid var(--db-adaptive-on-bg-basic-emphasis-60-default)`,
           }}
         >
           <span className="hidden">{name}</span>

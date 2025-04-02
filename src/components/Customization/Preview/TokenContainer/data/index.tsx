@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import BorderHeight from "./border-height.tsx";
+import BorderWidth from "./border-width.tsx";
 import BorderRadius from "./border-radius.tsx";
 import Elevation from "./elevation.tsx";
 import Sizing from "./sizing.tsx";
@@ -31,6 +31,6 @@ export const tokenComponents: TokenComponentType[] = [
   { title: "spacing", component: <Spacing /> },
   { title: "sizing", component: <Sizing /> },
   { title: "elevation", component: <Elevation /> },
-  { title: "borderHeight", component: <BorderHeight /> },
+  { title: "borderWidth", component: <BorderWidth /> },
   { title: "borderRadius", component: <BorderRadius /> },
 ];

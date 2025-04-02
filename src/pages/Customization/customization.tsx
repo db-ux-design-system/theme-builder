@@ -72,7 +72,7 @@ const Customization = () => {
 
           <Scaling label="sizing" params={["sizing"]} />
 
-          <Scaling label="borderHeight" params={["border", "height"]} />
+          <Scaling label="borderWidth" params={["border", "height"]} />
 
           <Scaling label="borderRadius" params={["border", "radius"]} />
         </div>
