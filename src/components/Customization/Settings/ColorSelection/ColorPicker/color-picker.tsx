@@ -288,16 +288,16 @@ const ColorPicker = ({
                           name: "Hovered",
                           min: 4.5,
                           value: getContrast(
-                            color.originLightHovered,
-                            color.onOriginLightDefault,
+                            color.originLightDefault,
+                            color.onOriginLightHovered,
                           ),
                         },
                         {
                           name: "Pressed",
                           min: 4.5,
                           value: getContrast(
-                            color.originLightPressed,
-                            color.onOriginLightDefault,
+                            color.originLightDefault,
+                            color.onOriginLightPressed,
                           ),
                         },
                       ],
@@ -450,16 +450,16 @@ const ColorPicker = ({
                           name: "Hovered",
                           min: 4.5,
                           value: getContrast(
-                            color.originDarkHovered,
-                            color.onOriginDarkDefault,
+                            color.originDarkDefault,
+                            color.onOriginDarkHovered,
                           ),
                         },
                         {
                           name: "Pressed",
                           min: 4.5,
                           value: getContrast(
-                            color.originDarkPressed,
-                            color.onOriginDarkDefault,
+                            color.originDarkDefault,
+                            color.onOriginDarkPressed,
                           ),
                         },
                       ],

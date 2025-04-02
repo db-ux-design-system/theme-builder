@@ -28,9 +28,9 @@ const App = () => {
     const sdSpeakingColors = getSDSpeakingColors(speakingNames, allColors);
 
     const finalTheme = {
+      ...mergeObjectsRecursive(sdColorPalette, sdSpeakingColors),
       ...getSDBaseIconProps(theme),
       ...theme,
-      ...mergeObjectsRecursive(sdColorPalette, sdSpeakingColors),
     };
 
     runStyleDictionary({
