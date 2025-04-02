@@ -27,7 +27,7 @@ export const platformsConfig: Config = {
   platforms: {
     css: {
       prefix: "db",
-      transformGroup: "css",
+      transformGroup: "custom/css",
       files: [
         {
           destination: "css/variables.css",
@@ -50,7 +50,7 @@ export const platformsConfig: Config = {
     },
     properties: {
       prefix: "db",
-      transformGroup: "css",
+      transformGroup: "custom/css",
       files: [
         {
           destination: "css/properties.css",
