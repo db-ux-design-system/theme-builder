@@ -1,10 +1,13 @@
 import { Format, TransformedToken } from "style-dictionary/types";
 
 const getSyntax = (token: TransformedToken) => {
-    // TODO: Length isn't working with `rem`... https://developer.mozilla.org/en-US/docs/Web/CSS/@property/syntax#length
+  // TODO: Length isn't working with `rem`... https://developer.mozilla.org/en-US/docs/Web/CSS/@property/syntax#length
   /*if (token.type === "dimension") {
     return "length";
   }*/
+  if (token.type === "number") {
+    return "number";
+  }
   if (token.type === "color") {
     return "color";
   }

@@ -20,16 +20,22 @@ export const getSDBaseIconProps = (theme: ThemeType): any => {
       );
 
       lineHeightPath.pop();
+      lineHeightPath.pop();
 
       const fontSizing = lineHeightAsNumber * fontSizeAsNumber;
       setObjectByPath(
         baseIconWeight,
-        lineHeightPath.join("."),
+        [...lineHeightPath, "value"].join("."),
         fontSizing * 16,
       );
       setObjectByPath(
+        baseIconWeight,
+        [...lineHeightPath, "type"].join("."),
+        "number",
+      );
+      setObjectByPath(
         baseIconFontSize,
-        lineHeightPath.join("."),
+        [...lineHeightPath, "value"].join("."),
         `${fontSizing}rem`,
       );
     }
