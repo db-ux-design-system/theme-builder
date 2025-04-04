@@ -115,9 +115,9 @@ export const allVariables: Variable[] = [
     sizes: ["sm", "md", "lg"],
   },
   {
-    name: "border-height",
-    description: "Changes border-height of element",
-    link: "https://marketingportal.extranet.deutschebahn.com/marketingportal/Design-Anwendungen/db-ux-design-system/version-3/foundation/border-height",
+    name: "border-width",
+    description: "Changes border-width of element",
+    link: "https://marketingportal.extranet.deutschebahn.com/marketingportal/Design-Anwendungen/db-ux-design-system/version-3/foundation/border-width",
     sizes: tShirtSizes,
   },
   {

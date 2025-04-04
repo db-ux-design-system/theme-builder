@@ -8,7 +8,7 @@ const BorderRadius = () => (
         className="flex w-siz-xl h-siz-xl md:w-siz-2xl md:h-siz-2xl db-color-successful items-center justify-center"
         style={{
           borderRadius: `var(--db-border-radius-${name})`,
-          border: `var(--db-border-height-3xs) solid var(--db-adaptive-on-bg-basic-emphasis-60-default)`,
+          border: `var(--db-border-width-3xs) solid var(--db-adaptive-on-bg-basic-emphasis-60-default)`,
         }}
       >
         {name}

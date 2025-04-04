@@ -1,6 +1,6 @@
 {
   "border": {
-    "height": {
+    "width": {
       "_scale": { "value": "100%" },
       "3xs": { "value": "0.0625", "type": "dimension" },
       "2xs": { "value": "0.125", "type": "dimension" },
