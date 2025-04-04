@@ -16,6 +16,7 @@ const getAttributes = (attribs: any, options: any): any => {
         try {
           const event = reactifyAttribute(key, "on");
           attributes[event] = Function(attribs[key].replace(/"/g, ""));
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (e) {
           /* empty */
         }
@@ -23,6 +24,7 @@ const getAttributes = (attribs: any, options: any): any => {
         try {
           const slot = reactifyAttribute(key, "slot");
           attributes[slot] = parse(attribs[key], options);
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (e) {
           /* empty */
         }

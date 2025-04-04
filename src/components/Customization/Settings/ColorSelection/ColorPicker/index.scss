@@ -23,6 +23,7 @@
           width: variables.$db-sizing-xs;
           background-color: var(--db-current-origin-color);
           border-radius: variables.$db-border-radius-full;
+          /* TODO: rename to border-width */
           border: variables.$db-border-height-3xs solid
             colors.$db-adaptive-on-bg-basic-emphasis-60-default;
         }
