@@ -12,7 +12,7 @@
   "accessibilityCriticalOnColor": "This color doesn't have the required contrast, this on-color won't be accessible. Try to change the color by hand or use our suggestion:",
   "base": "Base",
   "border": "Border",
-  "borderHeight": "Border height",
+  "borderWidth": "Border width",
   "borderRadius": "Border Radius",
   "brand": "Brand",
   "button": "Button",
