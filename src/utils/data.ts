@@ -4,18 +4,12 @@ export type DefaultColorType = {
   originLightDefault?: string;
   originLightHovered?: string;
   originLightPressed?: string;
-  onOriginLightAccessible?: boolean;
   onOriginLightDefault?: string;
-  onOriginLightHovered?: string;
-  onOriginLightPressed?: string;
   originDarkAccessible?: boolean;
   originDarkDefault?: string;
   originDarkHovered?: string;
   originDarkPressed?: string;
-  onOriginDarkAccessible?: boolean;
   onOriginDarkDefault?: string;
-  onOriginDarkHovered?: string;
-  onOriginDarkPressed?: string;
 
   /**
    * @deprecated
@@ -132,21 +126,11 @@ export type TransitionType = {
   straight: Record<string, ThemeValue<string>>;
 };
 
-export type FontType = {
-  name: string;
-  localName: string;
-  localShortName: string;
-  family: string;
-  weight: number;
-  woff2: string;
-};
 export type FontsType = {
   family: {
     sans: ThemeValue<string>;
     head: ThemeValue<string>;
   };
-  sans: Record<string, FontType>;
-  head: Record<string, FontType>;
 };
 
 export type BrandingType = {
@@ -249,23 +233,19 @@ export const speakingNamesDefaultMapping: SpeakingName[] = [
     transparencyLight: 68,
   },
   { name: "on-bg-basic-emphasis-100-default", dark: 12, light: 1 },
-  { name: "on-bg-basic-emphasis-100-hovered", dark: 10, light: 3 },
-  { name: "on-bg-basic-emphasis-100-pressed", dark: 9, light: 5 },
-  { name: "on-bg-basic-emphasis-90-default", dark: 10, light: 5 },
-  { name: "on-bg-basic-emphasis-90-hovered", dark: 9, light: 6 },
-  { name: "on-bg-basic-emphasis-90-pressed", dark: 8, light: 7 },
+  { name: "on-bg-basic-emphasis-100-hovered", dark: 9, light: 6 },
+  { name: "on-bg-basic-emphasis-100-pressed", dark: 11, light: 4 },
+  { name: "on-bg-basic-emphasis-90-default", dark: 10, light: 4 },
+  { name: "on-bg-basic-emphasis-90-hovered", dark: 14, light: 0 },
+  { name: "on-bg-basic-emphasis-90-pressed", dark: 12, light: 3 },
   { name: "on-bg-basic-emphasis-80-default", dark: 9, light: 6 },
-  { name: "on-bg-basic-emphasis-80-hovered", dark: 8, light: 5 },
-  { name: "on-bg-basic-emphasis-80-pressed", dark: 7, light: 4 },
+  { name: "on-bg-basic-emphasis-80-hovered", dark: 13, light: 1 },
+  { name: "on-bg-basic-emphasis-80-pressed", dark: 11, light: 3 },
   { name: "on-bg-basic-emphasis-70-default", dark: 8, light: 7 },
-  { name: "on-bg-basic-emphasis-70-hovered", dark: 7, light: 6 },
-  { name: "on-bg-basic-emphasis-70-pressed", dark: 6, light: 5 },
+  { name: "on-bg-basic-emphasis-70-hovered", dark: 12, light: 3 },
+  { name: "on-bg-basic-emphasis-70-pressed", dark: 10, light: 5 },
   { name: "on-bg-basic-emphasis-60-default", dark: 6, light: 10 },
-  { name: "on-bg-basic-emphasis-60-hovered", dark: 4, light: 8 },
-  { name: "on-bg-basic-emphasis-60-pressed", dark: 3, light: 7 },
   { name: "on-bg-basic-emphasis-50-default", dark: 5, light: 9 },
-  { name: "on-bg-basic-emphasis-50-hovered", dark: 3, light: 7 },
-  { name: "on-bg-basic-emphasis-50-pressed", dark: 2, light: 6 },
   { name: "bg-inverted-contrast-max-default", dark: 12, light: 1 },
   { name: "bg-inverted-contrast-max-hovered", dark: 10, light: 3 },
   { name: "bg-inverted-contrast-max-pressed", dark: 9, light: 4 },
@@ -276,12 +256,12 @@ export const speakingNamesDefaultMapping: SpeakingName[] = [
   { name: "bg-inverted-contrast-low-hovered", dark: 10, light: 5 },
   { name: "bg-inverted-contrast-low-pressed", dark: 11, light: 4 },
   { name: "on-bg-inverted-default", dark: 3, light: 14 },
-  { name: "on-bg-inverted-hovered", dark: 1, light: 12 },
-  { name: "on-bg-inverted-pressed", dark: 0, light: 11 },
+  { name: "on-bg-inverted-hovered", dark: 0, light: 11 },
+  { name: "on-bg-inverted-pressed", dark: 2, light: 13 },
   { name: "bg-vibrant-default", dark: 9, light: 9 },
   { name: "bg-vibrant-hovered", dark: 11, light: 11 },
   { name: "bg-vibrant-pressed", dark: 12, light: 12 },
   { name: "on-bg-vibrant-default", dark: 1, light: 1 },
-  { name: "on-bg-vibrant-hovered", dark: 3, light: 3 },
-  { name: "on-bg-vibrant-pressed", dark: 4, light: 4 },
+  { name: "on-bg-vibrant-hovered", dark: 4, light: 4 },
+  { name: "on-bg-vibrant-pressed", dark: 2, light: 2 },
 ];

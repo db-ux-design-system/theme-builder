@@ -118,79 +118,11 @@ const getOnColorByContrast = (
   return { onColor, accessible: false };
 };
 
-const getHoverPressedForOnColors = ({
-  originLuminanceDark,
-  hoverPressedBasisColor,
-  bgColor,
-}: {
-  originLuminanceDark: boolean;
-  hoverPressedBasisColor: string | Hsluv;
-  bgColor: string;
-}) => {
-  let hoveredColor = new Hsluv();
-  let pressedColor = new Hsluv();
-
-  if (originLuminanceDark) {
-    for (let i = 0; i <= 100; i++) {
-      hoveredColor = getColor(hoverPressedBasisColor, i);
-      hoveredColor.hsluvToHex();
-
-      const contrast = getContrast(bgColor, hoveredColor.hex);
-
-      if (contrast > 4.5) {
-        hoveredColor = getColor(hoverPressedBasisColor, i);
-        pressedColor = getColor(hoverPressedBasisColor, i + 10);
-        pressedColor.hsluvToHex();
-        const pressedContrast = getContrast(bgColor, pressedColor.hex);
-        if (pressedContrast < 4.5) {
-          pressedColor = getColor(hoverPressedBasisColor, i);
-        }
-        hoveredColor.hsluvToHex();
-        pressedColor.hsluvToHex();
-        console.log(
-          "dark",
-          bgColor,
-          hoveredColor,
-          pressedColor,
-          contrast,
-          pressedContrast,
-        );
-        break;
-      }
-    }
-  } else {
-    for (let i = 100; i >= 0; i--) {
-      hoveredColor = getColor(hoverPressedBasisColor, i);
-      hoveredColor.hsluvToHex();
-
-      const contrast = getContrast(bgColor, hoveredColor.hex);
-
-      if (contrast > 4.5) {
-        hoveredColor = getColor(hoverPressedBasisColor, i);
-        pressedColor = getColor(hoverPressedBasisColor, i - 10);
-        pressedColor.hsluvToHex();
-        const pressedContrast = getContrast(bgColor, pressedColor.hex);
-        if (pressedContrast < 4.5) {
-          pressedColor = getColor(hoverPressedBasisColor, i);
-        }
-        hoveredColor.hsluvToHex();
-        pressedColor.hsluvToHex();
-        console.log("light", bgColor, hoveredColor, pressedColor, contrast);
-        break;
-      }
-    }
-  }
-
-  return { hoveredColor, pressedColor };
-};
-
 export const getOriginOnColors = (
   originBgColor: string,
   customFgColor?: string,
 ): {
   onOrigin: string;
-  hoverColor: string;
-  pressedColor: string;
 } => {
   let originLuminanceDark = getOriginLuminanceDark(originBgColor);
   let color: string;
@@ -214,26 +146,12 @@ export const getOriginOnColors = (
   }
 
   if (customFgColor) {
-    const { hoveredColor, pressedColor } = getHoverPressedForOnColors({
-      hoverPressedBasisColor: customFgColor,
-      bgColor: originBgColor,
-      originLuminanceDark,
-    });
     return {
       onOrigin: customFgColor,
-      hoverColor: hoveredColor.hex,
-      pressedColor: pressedColor.hex,
     };
   } else {
-    const { hoveredColor, pressedColor } = getHoverPressedForOnColors({
-      originLuminanceDark,
-      hoverPressedBasisColor: originBgColor,
-      bgColor: originBgColor,
-    });
     return {
       onOrigin: color,
-      hoverColor: hoveredColor.hex,
-      pressedColor: pressedColor.hex,
     };
   }
 };
@@ -286,53 +204,19 @@ export const generateColorsByOrigin = ({
 }): DefaultColorType => {
   const color = customBgColor ?? origin;
 
-  const { onOrigin, hoverColor, pressedColor } = getOriginOnColors(
-    color,
-    customFgColor,
-  );
+  const { onOrigin } = getOriginOnColors(color, customFgColor);
 
   const backgroundColors = getOriginBackgroundColor(origin, color, darkMode);
-
-  const contrastOrigin = getContrast(
-    darkMode
-      ? backgroundColors.originDarkDefault
-      : backgroundColors.originLightDefault,
-    onOrigin,
-  );
-  const contrastOriginHovered = getContrast(
-    darkMode
-      ? backgroundColors.originDarkHovered
-      : backgroundColors.originLightHovered,
-    onOrigin,
-  );
-  const contrastOriginPressed = getContrast(
-    darkMode
-      ? backgroundColors.originDarkPressed
-      : backgroundColors.originLightPressed,
-    onOrigin,
-  );
-
-  const onOriginAccessible =
-    contrastOrigin === 1 ||
-    (contrastOrigin >= 4.5 &&
-      contrastOriginHovered >= 4.5 &&
-      contrastOriginPressed >= 4.5);
 
   if (darkMode) {
     return {
       ...backgroundColors,
       onOriginDarkDefault: onOrigin,
-      onOriginDarkHovered: hoverColor,
-      onOriginDarkPressed: pressedColor,
-      onOriginDarkAccessible: onOriginAccessible,
     };
   }
 
   return {
     ...backgroundColors,
     onOriginLightDefault: onOrigin,
-    onOriginLightHovered: hoverColor,
-    onOriginLightPressed: pressedColor,
-    onOriginLightAccessible: onOriginAccessible,
   };
 };

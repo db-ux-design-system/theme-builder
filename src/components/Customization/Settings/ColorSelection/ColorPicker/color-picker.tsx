@@ -49,11 +49,6 @@ const ColorPicker = ({
       return undefined;
     } else if (!color.originDarkAccessible || !color.originLightAccessible) {
       return "exclamation_mark_triangle";
-    } else if (
-      !color.onOriginDarkAccessible ||
-      !color.onOriginLightAccessible
-    ) {
-      return "exclamation_mark_circle";
     } else {
       return undefined;
     }
@@ -284,33 +279,12 @@ const ColorPicker = ({
                             color.onOriginLightDefault,
                           ),
                         },
-                        {
-                          name: "Hovered",
-                          min: 4.5,
-                          value: getContrast(
-                            color.originLightDefault,
-                            color.onOriginLightHovered,
-                          ),
-                        },
-                        {
-                          name: "Pressed",
-                          min: 4.5,
-                          value: getContrast(
-                            color.originLightDefault,
-                            color.onOriginLightPressed,
-                          ),
-                        },
                       ],
                     },
                   ]}
                   onColorChange={(col) => {
                     if (setOriginColor) {
-                      const {
-                        onOriginLightDefault,
-                        onOriginLightAccessible,
-                        onOriginLightHovered,
-                        onOriginLightPressed,
-                      } = generateColorsByOrigin({
+                      const { onOriginLightDefault } = generateColorsByOrigin({
                         origin: color.originLightDefault ?? FALLBACK_COLOR,
                         darkMode: false,
                         customFgColor: col,
@@ -318,9 +292,6 @@ const ColorPicker = ({
                       setOriginColor({
                         ...color,
                         onOriginLightDefault,
-                        onOriginLightHovered,
-                        onOriginLightPressed,
-                        onOriginLightAccessible,
                       });
                     }
                   }}
@@ -446,33 +417,12 @@ const ColorPicker = ({
                             color.onOriginDarkDefault,
                           ),
                         },
-                        {
-                          name: "Hovered",
-                          min: 4.5,
-                          value: getContrast(
-                            color.originDarkDefault,
-                            color.onOriginDarkHovered,
-                          ),
-                        },
-                        {
-                          name: "Pressed",
-                          min: 4.5,
-                          value: getContrast(
-                            color.originDarkDefault,
-                            color.onOriginDarkPressed,
-                          ),
-                        },
                       ],
                     },
                   ]}
                   onColorChange={(col) => {
                     if (setOriginColor) {
-                      const {
-                        onOriginDarkDefault,
-                        onOriginDarkAccessible,
-                        onOriginDarkHovered,
-                        onOriginDarkPressed,
-                      } = generateColorsByOrigin({
+                      const { onOriginDarkDefault } = generateColorsByOrigin({
                         origin: color.originDarkDefault ?? FALLBACK_COLOR,
                         darkMode: true,
                         customFgColor: col,
@@ -480,9 +430,6 @@ const ColorPicker = ({
                       setOriginColor({
                         ...color,
                         onOriginDarkDefault,
-                        onOriginDarkHovered,
-                        onOriginDarkPressed,
-                        onOriginDarkAccessible,
                       });
                     }
                   }}
