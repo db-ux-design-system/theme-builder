@@ -122,11 +122,11 @@ export type SizingFixedType = {
 
 export type TransitionType = {
   duration: {
-    "x-slow": ThemeValue<string>;
+    "extra-slow": ThemeValue<string>;
     slow: ThemeValue<string>;
     medium: ThemeValue<string>;
     fast: ThemeValue<string>;
-    "x-fast": ThemeValue<string>;
+    "extra-fast": ThemeValue<string>;
   };
   timing: Record<string, ThemeValue<string>>;
   straight: Record<string, ThemeValue<string>>;
