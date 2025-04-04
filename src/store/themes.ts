@@ -14,6 +14,7 @@ import Colors from "../data/default-theme/colors.json";
 
 import DBBranding from "../data/db-theme/branding.json";
 import DBColors from "../data/db-theme/colors.json";
+import DBFonts from "../data/db-theme/fonts.json";
 
 import SBahnBranding from "../data/sbahn-theme/branding.json";
 import SBahnBColors from "../data/sbahn-theme/colors.json";
@@ -38,10 +39,12 @@ export const dbTheme: ThemeType = {
   ...defaultTheme,
   ...DBBranding,
   ...DBColors,
+  ...DBFonts,
 };
 
 export const sBahnTheme: ThemeType = {
   ...defaultTheme,
   ...SBahnBranding,
   ...SBahnBColors,
+  ...DBFonts,
 };

@@ -2,7 +2,10 @@ import { DirectoryJSON, Volume } from "@bundled-es-modules/memfs";
 import StyleDictionary, { type Config } from "style-dictionary";
 import { CustomCssTransFormGroup } from "./config/transform-groups.ts";
 import { CssAppOverwriteFormat, CssPropertyFormat } from "./config/formats.ts";
-import { SemanticColorsTransform } from "./config/transforms.ts";
+import {
+  SemanticColorsTransform,
+  ShadowTransform,
+} from "./config/transforms.ts";
 import { getSDBaseIconProps, traverseSABTypography } from "./typography.ts";
 import { mergeObjectsRecursive } from "../../index.ts";
 import { ThemeType } from "../../data.ts";
@@ -10,6 +13,7 @@ import { ThemeType } from "../../data.ts";
 StyleDictionary.registerFormat(CssPropertyFormat);
 StyleDictionary.registerFormat(CssAppOverwriteFormat);
 StyleDictionary.registerTransform(SemanticColorsTransform);
+StyleDictionary.registerTransform(ShadowTransform);
 StyleDictionary.registerTransformGroup(CustomCssTransFormGroup);
 
 export const runStyleDictionary = async (config: Config) => {

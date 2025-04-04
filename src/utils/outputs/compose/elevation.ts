@@ -86,11 +86,13 @@ enum class ${designSystemShortName}Elevation(internal val config: List<${designS
 
     resolvedTokenFile += `    ${name.toUpperCase()}(
         listOf(`;
-    for (const { blur, spread, color } of elevationLayer.value) {
-      resolvedTokenFile += `
+    if (elevationLayer.value) {
+      for (const { blur, spread, color } of elevationLayer.value) {
+        resolvedTokenFile += `
             ${designSystemShortName}ElevationShadowConfig(DpOffset(0.dp, 0.dp), ${blur}.dp, ${spread < 0 ? "(" + spread + ")" : spread}.dp, Color(${color}f)),`;
+      }
+      resolvedTokenFile += `\n        ),\n    ),\n`;
     }
-    resolvedTokenFile += `\n        ),\n    ),\n`;
   }
 
   resolvedTokenFile += "}\n";

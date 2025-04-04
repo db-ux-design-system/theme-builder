@@ -60,7 +60,6 @@ export const getHeissluftColors = (
         })
         .map((hsl, index) => ({ ...hsl, index })),
     ];
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     console.warn("Missing color", color);
     return platte;

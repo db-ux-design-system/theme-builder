@@ -2,9 +2,7 @@
   "sizing": {
     "_scale": { "value": "100%" },
     "fixed": {
-      "mobile": {
-        "header": { "value": "3.5", "type": "dimension" }
-      }
+      "mobile": { "header": { "value": "3.5", "type": "dimension" } }
     },
     "regular": {
       "3xl": { "value": "15", "type": "dimension" },

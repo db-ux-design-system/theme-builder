@@ -16,7 +16,6 @@ import {
 } from "./compose/typography.ts";
 import { generateDensityEnumFile } from "./compose/density.ts";
 import { getSketchColorsAsString } from "./sketch.ts";
-import { getFontFaces } from "./web/fonts.ts";
 import { kebabCase, mergeObjectsRecursive } from "../index.ts";
 import { generateCustomColorClass } from "./web/custom-color-class.ts";
 import { generateAndroidReadmeFile } from "./compose/readme.ts";
@@ -166,7 +165,6 @@ export const downloadTheme = async (
     `${utilsFolder}/${fileName}-sketch-colors.json`,
     getSketchColorsAsString(speakingNames, allColors, luminanceSteps),
   );
-  zip.file(`${utilsFolder}/${fileName}-font-faces.scss`, getFontFaces(theme));
 
   // Web
   const webFolder: string = "Web";
