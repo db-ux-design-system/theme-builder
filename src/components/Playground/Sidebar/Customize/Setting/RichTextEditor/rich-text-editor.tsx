@@ -112,7 +112,6 @@ const RichTextEditor: FC<RichTextEditorType> = ({
 
   useEffect(() => {
     // update content with empty string
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     richTextValue == "" && editor?.commands.setContent(richTextValue, true);
     /* eslint-disable react-hooks/exhaustive-deps */
   }, [richTextValue]);

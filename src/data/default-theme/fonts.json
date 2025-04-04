@@ -3,11 +3,11 @@
     "family": {
       "sans": {
         "type": "fontFamily",
-        "value": "'DB Screen Sans', Helvetica, Arial, sans-serif"
+        "value": "'DB Neo Screen Sans', Helvetica, Arial, sans-serif"
       },
       "head": {
         "type": "fontFamily",
-        "value": "'DB Screen Head', Helvetica, Arial, sans-serif"
+        "value": "'DB Neo Screen Head', Helvetica, Arial, sans-serif"
       }
     },
     "sans": {
