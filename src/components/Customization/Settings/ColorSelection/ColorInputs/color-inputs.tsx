@@ -10,6 +10,8 @@ import { useTranslation } from "react-i18next";
 const ColorInputs = ({
   name,
   color,
+  hoveredColor,
+  pressedColor,
   onColorChange,
   error,
   alternative,
@@ -48,25 +50,39 @@ const ColorInputs = ({
           </div>
         </div>
       ))}
-      <div className="grid grid-cols-2 gap-fix-md">
-        <DBInput
-          label={t("colorInputPicker")}
-          type="color"
-          value={color}
-          onChange={(event) => {
-            onColorChange(event.target.value);
-          }}
-        />
+      {[color, hoveredColor, pressedColor]
+        .filter((color) => Boolean(color))
+        .map((color, index) => (
+          <div
+            key={`color-input-${name}-${index}`}
+            className="grid grid-cols-2 gap-fix-md"
+          >
+            <DBInput
+              label={t("colorInputPicker")}
+              type="color"
+              readOnly={index !== 0}
+              value={color}
+              onChange={(event) => {
+                if (index === 0) {
+                  onColorChange?.(event.target.value);
+                }
+              }}
+            />
 
-        <DBInput
-          label={t("colorInputHex")}
-          placeholder={t("colorInputHex")}
-          value={color}
-          onChange={(event) => {
-            onColorChange(event.target.value);
-          }}
-        />
-      </div>
+            <DBInput
+              label={t("colorInputHex")}
+              placeholder={t("colorInputHex")}
+              value={color}
+              readOnly={index !== 0}
+              onChange={(event) => {
+                if (index === 0) {
+                  onColorChange?.(event.target.value);
+                }
+              }}
+            />
+          </div>
+        ))}
+
       {error && <DBInfotext semantic="warning">{t(error)}</DBInfotext>}
       {alternative && (
         <div className="grid grid-cols-2 gap-fix-md">
@@ -78,7 +94,7 @@ const ColorInputs = ({
           </div>
           <DBButton
             onClick={() => {
-              onColorChange(alternative);
+              onColorChange?.(alternative);
             }}
           >
             {t("overwrite")}

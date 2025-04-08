@@ -7,7 +7,9 @@ export type ContrastType = {
 export type ColorInputsType = {
   name: string;
   color: string;
-  onColorChange: (color: string) => void;
+  hoveredColor?: string;
+  pressedColor?: string;
+  onColorChange?: (color: string) => void;
   error?: string;
   alternative?: string;
   contrastGroups?: { groupName?: string; contrasts: ContrastType[] }[];
