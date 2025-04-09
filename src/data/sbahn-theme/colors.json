@@ -1,15 +1,15 @@
 {
   "colors": {
     "neutral": {
-      "origin": "#050505",
-      "originDarkDefault": "#050505",
-      "originDarkHovered": "#3e3e3e",
-      "originDarkPressed": "#1e1e1e",
-      "onOriginDarkDefault": "#f9f9f9",
-      "originLightDefault": "#050505",
-      "originLightHovered": "#3e3e3e",
-      "originLightPressed": "#1e1e1e",
-      "onOriginLightDefault": "#f9f9f9"
+      "origin": "#646973",
+      "originDarkDefault": "#646973",
+      "originDarkHovered": "#2c2f34",
+      "originDarkPressed": "#4d5159",
+      "onOriginDarkDefault": "#f9f9fa",
+      "originLightDefault": "#646973",
+      "originLightHovered": "#2c2f34",
+      "originLightPressed": "#4d5159",
+      "onOriginLightDefault": "#f9f9fa"
     },
     "brand": {
       "origin": "#408335",
