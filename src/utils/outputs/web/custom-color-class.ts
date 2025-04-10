@@ -139,12 +139,6 @@ export const generateCustomColorClass = (colorName: string): string => {
   --db-adaptive-on-origin-default: var(
   	--db-${colorName}-on-origin-default
   );
-  --db-adaptive-on-origin-hovered: var(
-  	--db-${colorName}-on-origin-hovered
-  );
-  --db-adaptive-on-origin-pressed: var(
-  	--db-${colorName}-on-origin-pressed
-  );
 }
 
 [data-color=${colorName}-bg-basic-level-1],

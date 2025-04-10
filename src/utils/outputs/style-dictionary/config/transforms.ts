@@ -21,3 +21,24 @@ export const SemanticColorsTransform: Transform = {
     return `light-dark(${lightVar},${darkVar})`;
   },
 };
+
+export const CSS_SHADOW = "css/shadow";
+export const ShadowTransform: Transform = {
+  name: CSS_SHADOW,
+  type: "value",
+  filter: (token) => token.type === "shadow",
+  transform: (token) => {
+    // Allow both single and multi shadow tokens:
+    const shadows = Array.isArray(token.value) ? token.value : [token.value];
+
+    const transformedShadows = shadows.map((shadow) => {
+      const { blur, spread, color, type, offsetX, offsetY } = shadow;
+
+      return `${type ? `${type} ` : ""} ${offsetX ?? 0}px ${offsetY ?? 0}px ${blur ?? 0}px ${
+        spread ? `${spread}px ` : ""
+      }${color ?? `#000000`}`;
+    });
+
+    return transformedShadows.join(", ");
+  },
+};

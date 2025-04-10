@@ -1,4 +1,4 @@
-import { CSS_SEMANTIC_COLORS_NAME } from "./transforms.ts";
+import { CSS_SEMANTIC_COLORS_NAME, CSS_SHADOW } from "./transforms.ts";
 
 export type TransformGroup = {
   name: string;
@@ -21,6 +21,5 @@ export const CustomCssTransFormGroup: TransformGroup = {
     "border/css/shorthand",
     "typography/css/shorthand",
     "transition/css/shorthand",
-    "shadow/css/shorthand",
-  ].concat([CSS_SEMANTIC_COLORS_NAME]),
+  ].concat([CSS_SEMANTIC_COLORS_NAME, CSS_SHADOW]),
 };

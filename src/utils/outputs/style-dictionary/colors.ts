@@ -72,26 +72,10 @@ export const getSDColorPalette = (
             value: color.onOriginLightDefault,
             type: "color",
           },
-          hovered: {
-            value: color.onOriginLightHovered,
-            type: "color",
-          },
-          pressed: {
-            value: color.onOriginLightPressed,
-            type: "color",
-          },
         },
         dark: {
           default: {
             value: color.onOriginDarkDefault,
-            type: "color",
-          },
-          hovered: {
-            value: color.onOriginDarkHovered,
-            type: "color",
-          },
-          pressed: {
-            value: color.onOriginDarkPressed,
             type: "color",
           },
         },
@@ -166,20 +150,6 @@ export const getSDSpeakingColors = (
             value: {
               light: [name, "on", "origin", "light", "default"],
               dark: [name, "on", "origin", "dark", "default"],
-            },
-          },
-          hovered: {
-            type: SEMANTIC_COLOR,
-            value: {
-              light: [name, "on", "origin", "light", "hovered"],
-              dark: [name, "on", "origin", "dark", "hovered"],
-            },
-          },
-          pressed: {
-            type: SEMANTIC_COLOR,
-            value: {
-              light: [name, "on", "origin", "light", "pressed"],
-              dark: [name, "on", "origin", "dark", "pressed"],
             },
           },
         },

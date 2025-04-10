@@ -20,16 +20,22 @@ export const getSDBaseIconProps = (theme: ThemeType): any => {
       );
 
       lineHeightPath.pop();
+      lineHeightPath.pop();
 
       const fontSizing = lineHeightAsNumber * fontSizeAsNumber;
       setObjectByPath(
         baseIconWeight,
-        lineHeightPath.join("."),
+        [...lineHeightPath, "value"].join("."),
         fontSizing * 16,
       );
       setObjectByPath(
+        baseIconWeight,
+        [...lineHeightPath, "type"].join("."),
+        "number",
+      );
+      setObjectByPath(
         baseIconFontSize,
-        lineHeightPath.join("."),
+        [...lineHeightPath, "value"].join("."),
         `${fontSizing}rem`,
       );
     }
@@ -56,9 +62,13 @@ export const traverseSABTypography = (typography: ThemeTonalities) => {
   const trav = traverse(typography);
   trav.map(function (value) {
     if (this.path.length === 3) {
-      Object.entries(value).forEach(([key, val]) => {
-        typographyKeys.forEach((typoKey) => {
+      for (const [key, val] of Object.entries(value)) {
+        for (const typoKey of typographyKeys) {
           try {
+            if (!(val as any).value) {
+              continue;
+            }
+
             setObjectByPath(
               updatedValue[typoKey],
               [...this.path, key].join("."),
@@ -69,8 +79,8 @@ export const traverseSABTypography = (typography: ThemeTonalities) => {
           } catch (error) {
             console.error(error);
           }
-        });
-      });
+        }
+      }
     }
   });
   return updatedValue;
