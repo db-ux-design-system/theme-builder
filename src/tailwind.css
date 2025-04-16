@@ -12,33 +12,27 @@ h6 {
 }
 
 h1 {
-  line-height: var(--db-type-headline-line-height-xl) !important;
-  font-size: var(--db-type-headline-font-size-xl) !important;
+  font: var(--db-type-headline-xl) !important;
 }
 
 h2 {
-  line-height: var(--db-type-headline-line-height-lg) !important;
-  font-size: var(--db-type-headline-font-size-lg) !important;
+  font: var(--db-type-headline-lg) !important;
 }
 
 h3 {
-  line-height: var(--db-type-headline-line-height-md) !important;
-  font-size: var(--db-type-headline-font-size-md) !important;
+  font: var(--db-type-headline-md) !important;
 }
 
 h4 {
-  line-height: var(--db-type-headline-line-height-sm) !important;
-  font-size: var(--db-type-headline-font-size-sm) !important;
+  font: var(--db-type-headline-sm) !important;
 }
 
 h5 {
-  line-height: var(--db-type-headline-line-height-xs) !important;
-  font-size: var(--db-type-headline-font-size-xs) !important;
+  font: var(--db-type-headline-xs) !important;
 }
 
 h6 {
-  line-height: var(--db-type-headline-line-height-2xs) !important;
-  font-size: var(--db-type-headline-font-size-2xs) !important;
+  font: var(--db-type-headline-2xs) !important;
 }
 
 a {

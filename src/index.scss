@@ -75,7 +75,7 @@ h6 {
 
 .scale-down {
   /* TODO: rename to border-width */
-  border: variables.$db-border-height-3xs solid
+  border: variables.$db-border-width-3xs solid
     colors.$db-neutral-on-bg-basic-emphasis-70-default;
   border-radius: variables.$db-border-radius-lg;
 
