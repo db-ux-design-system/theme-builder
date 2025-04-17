@@ -51,13 +51,14 @@ export const getSDBaseIconProps = (theme: ThemeType): any => {
   };
 };
 
-const typographyKeys: string[] = ["lineHeight", "fontSize", "fontFamily"];
+const typographyKeys: string[] = ["lineHeight", "fontSize", "fontFamily", "fontWeight"];
 
 export const traverseSABTypography = (typography: ThemeTonalities) => {
   const updatedValue: any = {
     lineHeight: {},
     fontSize: {},
     fontFamily: {},
+    fontWeight: {},
   };
   const trav = traverse(typography);
   trav.map(function (value) {
