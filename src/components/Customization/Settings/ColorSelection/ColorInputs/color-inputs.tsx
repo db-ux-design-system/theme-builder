@@ -3,51 +3,86 @@ import {
   DBDivider,
   DBInfotext,
   DBInput,
-} from "@db-ui/react-components";
+} from "@db-ux/react-core-components";
 import { ColorInputsType } from "./data.ts";
 import { useTranslation } from "react-i18next";
 
 const ColorInputs = ({
   name,
   color,
+  hoveredColor,
+  pressedColor,
   onColorChange,
   error,
   alternative,
-  contrast,
-  contrastMin,
+  contrastGroups,
 }: ColorInputsType) => {
   const { t } = useTranslation();
   return (
     <>
       <DBDivider />
-      <p className="font-bold">{name}</p>
-      {contrast && (
-        <DBInfotext
-          semantic={contrast < (contrastMin ?? 3) ? "critical" : "successful"}
-          size="small"
+      <span className="font-bold">{name}</span>
+      {contrastGroups?.map((contrastGroup, indexGroup) => (
+        <div
+          className="flex flex-col gap-fix-2xs"
+          key={`${name}-contrast-group-${indexGroup}`}
         >
-          {contrast.toFixed(2)}:1
-        </DBInfotext>
-      )}
-      <div className="grid grid-cols-2 gap-fix-md">
-        <DBInput
-          label={t("colorInputPicker")}
-          type="color"
-          value={color}
-          onChange={(event) => {
-            onColorChange(event.target.value);
-          }}
-        />
+          {contrastGroup.groupName && (
+            <small className="text-adaptive-on-basic-emphasis-80-default">
+              {contrastGroup.groupName}
+            </small>
+          )}
+          <div className="flex flex-wrap gap-fix-sm">
+            {contrastGroup.contrasts.map((contrast, index) => (
+              <DBInfotext
+                key={`${name}-contrast-${index}`}
+                semantic={
+                  contrast.value < (contrast.min ?? 3)
+                    ? "critical"
+                    : "successful"
+                }
+                size="small"
+              >
+                {contrast.name ? `${contrast.name}: ` : ""}
+                {contrast.value.toFixed(2)}:1
+              </DBInfotext>
+            ))}
+          </div>
+        </div>
+      ))}
+      {[color, hoveredColor, pressedColor]
+        .filter((color) => Boolean(color))
+        .map((color, index) => (
+          <div
+            key={`color-input-${name}-${index}`}
+            className="grid grid-cols-2 gap-fix-md"
+          >
+            <DBInput
+              label={t("colorInputPicker")}
+              type="color"
+              readOnly={index !== 0}
+              value={color}
+              onChange={(event) => {
+                if (index === 0) {
+                  onColorChange?.(event.target.value);
+                }
+              }}
+            />
 
-        <DBInput
-          label={t("colorInputHex")}
-          placeholder={t("colorInputHex")}
-          value={color}
-          onChange={(event) => {
-            onColorChange(event.target.value);
-          }}
-        />
-      </div>
+            <DBInput
+              label={t("colorInputHex")}
+              placeholder={t("colorInputHex")}
+              value={color}
+              readOnly={index !== 0}
+              onChange={(event) => {
+                if (index === 0) {
+                  onColorChange?.(event.target.value);
+                }
+              }}
+            />
+          </div>
+        ))}
+
       {error && <DBInfotext semantic="warning">{t(error)}</DBInfotext>}
       {alternative && (
         <div className="grid grid-cols-2 gap-fix-md">
@@ -59,7 +94,7 @@ const ColorInputs = ({
           </div>
           <DBButton
             onClick={() => {
-              onColorChange(alternative);
+              onColorChange?.(alternative);
             }}
           >
             {t("overwrite")}

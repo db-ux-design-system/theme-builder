@@ -1,6 +1,6 @@
 export const generateCustomColorClass = (colorName: string): string => {
-  return `[data-container-color=${colorName}],
-.db-container-color-${colorName}, [data-color=${colorName}-bg-basic-level-3],
+  return `[data-color=${colorName}],
+.db-color-${colorName}, [data-color=${colorName}-bg-basic-level-3],
 .db-${colorName}-bg-basic-level-3, [data-color=${colorName}-bg-basic-level-2],
 .db-${colorName}-bg-basic-level-2, [data-color=${colorName}-bg-basic-level-1],
 .db-${colorName}-bg-basic-level-1 {
@@ -109,20 +109,20 @@ export const generateCustomColorClass = (colorName: string): string => {
   --db-adaptive-bg-inverted-contrast-high-default: var(
   	--db-${colorName}-bg-inverted-contrast-high-default
   );
-  --db-adaptive-bg-inverted-bg-inverted-contrast-high-hovered: var(
-  	--db-${colorName}-bg-inverted-bg-inverted-contrast-high-hovered
+  --db-adaptive-bg-inverted-contrast-high-hovered: var(
+  	--db-${colorName}-bg-inverted-contrast-high-hovered
   );
-  --db-adaptive-bg-inverted-bg-inverted-contrast-high-pressed: var(
-  	--db-${colorName}-bg-inverted-bg-inverted-contrast-high-pressed
+  --db-adaptive-bg-inverted-contrast-high-pressed: var(
+  	--db-${colorName}-bg-inverted-contrast-high-pressed
   );
   --db-adaptive-bg-inverted-contrast-low-default: var(
   	--db-${colorName}-bg-inverted-contrast-low-default
   );
-  --db-adaptive-bg-inverted-bg-inverted-contrast-low-hovered: var(
-  	--db-${colorName}-bg-inverted-bg-inverted-contrast-low-hovered
+  --db-adaptive-bg-inverted-contrast-low-hovered: var(
+  	--db-${colorName}-bg-inverted-contrast-low-hovered
   );
-  --db-adaptive-bg-inverted-bg-inverted-contrast-low-pressed: var(
-  	--db-${colorName}-bg-inverted-bg-inverted-contrast-low-pressed
+  --db-adaptive-bg-inverted-contrast-low-pressed: var(
+  	--db-${colorName}-bg-inverted-contrast-low-pressed
   );
   --db-adaptive-on-bg-inverted-default: var(
   	--db-${colorName}-on-bg-inverted-default
@@ -138,12 +138,6 @@ export const generateCustomColorClass = (colorName: string): string => {
   --db-adaptive-origin-pressed: var(--db-${colorName}-origin-pressed);
   --db-adaptive-on-origin-default: var(
   	--db-${colorName}-on-origin-default
-  );
-  --db-adaptive-on-origin-hovered: var(
-  	--db-${colorName}-on-origin-hovered
-  );
-  --db-adaptive-on-origin-pressed: var(
-  	--db-${colorName}-on-origin-pressed
   );
 }
 
@@ -180,8 +174,8 @@ export const generateCustomColorClass = (colorName: string): string => {
   --db-icon-color: var(--db-${colorName}-on-bg-basic-emphasis-100-default);
 }
 
-[data-container-color=${colorName}],
-.db-container-color-${colorName} {
+[data-color=${colorName}],
+.db-color-${colorName} {
   color: var(--db-adaptive-on-bg-basic-emphasis-100-default);
   background-color: var(--db-adaptive-bg-basic-level-1-default);
 }

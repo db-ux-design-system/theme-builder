@@ -1,0 +1,14 @@
+{
+  "font": {
+    "family": {
+      "sans": {
+        "type": "fontFamily",
+        "value": "'OpenSans', Helvetica, Arial, sans-serif"
+      },
+      "head": {
+        "type": "fontFamily",
+        "value": "'OpenSans Head', Helvetica, Arial, sans-serif"
+      }
+    }
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "colors": {
+    "neutral": {
+      "origin": "#232529",
+      "originDarkDefault": "#232529",
+      "originDarkHovered": "#595e66",
+      "originDarkPressed": "#383b40",
+      "onOriginDarkDefault": "#f9f9fa",
+      "originLightDefault": "#232529",
+      "originLightHovered": "#595e66",
+      "originLightPressed": "#383b40",
+      "onOriginLightDefault": "#f9f9fa"
+    },
+    "brand": {
+      "origin": "#514ec7",
+      "originDarkDefault": "#514ec7",
+      "originDarkHovered": "#1d1b64",
+      "originDarkPressed": "#3834ac",
+      "onOriginDarkDefault": "#cbffe7",
+      "originLightDefault": "#514ec7",
+      "originLightHovered": "#1d1b64",
+      "originLightPressed": "#3834ac",
+      "onOriginLightDefault": "#cbffe7"
+    },
+    "informational": {
+      "origin": "#00aeff",
+      "originDarkDefault": "#00aeff",
+      "originDarkHovered": "#c2dfff",
+      "originDarkPressed": "#87c6ff",
+      "onOriginDarkDefault": "#000812",
+      "originLightDefault": "#00aeff",
+      "originLightHovered": "#c2dfff",
+      "originLightPressed": "#87c6ff",
+      "onOriginLightDefault": "#000812"
+    },
+    "warning": {
+      "origin": "#ff9900",
+      "originDarkDefault": "#ff9900",
+      "originDarkHovered": "#ffe4d5",
+      "originDarkPressed": "#ffbf95",
+      "onOriginDarkDefault": "#100500",
+      "originLightDefault": "#ff9900",
+      "originLightHovered": "#ffe4d5",
+      "originLightPressed": "#ffbf95",
+      "onOriginLightDefault": "#100500"
+    },
+    "successful": {
+      "origin": "#85f901",
+      "originDarkDefault": "#85f901",
+      "originDarkHovered": "#63bc01",
+      "originDarkPressed": "#74da01",
+      "onOriginDarkDefault": "#020a00",
+      "originLightDefault": "#85f901",
+      "originLightHovered": "#63bc01",
+      "originLightPressed": "#74da01",
+      "onOriginLightDefault": "#020a00"
+    },
+    "critical": {
+      "origin": "#fe011b",
+      "originDarkDefault": "#fe011b",
+      "originDarkHovered": "#ff9698",
+      "originDarkPressed": "#ff6669",
+      "onOriginDarkDefault": "#1a0000",
+      "originLightDefault": "#fe011b",
+      "originLightHovered": "#ff9698",
+      "originLightPressed": "#ff6669",
+      "onOriginLightDefault": "#1a0000"
+    }
+  },
+  "additionalColors": {
+    "yellow": {
+      "origin": "#ffd900",
+      "originDarkDefault": "#ffd900",
+      "originDarkHovered": "#c0a300",
+      "originDarkPressed": "#dfbd00",
+      "onOriginDarkDefault": "#0a0700",
+      "originLightDefault": "#ffd900",
+      "originLightHovered": "#c0a300",
+      "originLightPressed": "#dfbd00",
+      "onOriginLightDefault": "#0a0700"
+    },
+    "orange": {
+      "origin": "#ff9900",
+      "originDarkDefault": "#ff9900",
+      "originDarkHovered": "#ffe4d5",
+      "originDarkPressed": "#ffbf95",
+      "onOriginDarkDefault": "#100500",
+      "originLightDefault": "#ff9900",
+      "originLightHovered": "#ffe4d5",
+      "originLightPressed": "#ffbf95",
+      "onOriginLightDefault": "#100500"
+    },
+    "red": {
+      "origin": "#ff0019",
+      "originDarkDefault": "#ff0019",
+      "originDarkHovered": "#ff9798",
+      "originDarkPressed": "#ff676a",
+      "onOriginDarkDefault": "#1a0000",
+      "originLightDefault": "#ff0019",
+      "originLightHovered": "#ff9798",
+      "originLightPressed": "#ff676a",
+      "onOriginLightDefault": "#1a0000"
+    },
+    "pink": {
+      "origin": "#ff0077",
+      "originDarkDefault": "#ff0077",
+      "originDarkHovered": "#ff9ab3",
+      "originDarkPressed": "#ff6995",
+      "onOriginDarkDefault": "#190006",
+      "originLightDefault": "#ff0077",
+      "originLightHovered": "#ff9ab3",
+      "originLightPressed": "#ff6995",
+      "onOriginLightDefault": "#190006"
+    },
+    "violet": {
+      "origin": "#b603fc",
+      "originDarkDefault": "#b603fc",
+      "originDarkHovered": "#5c0182",
+      "originDarkPressed": "#9102c9",
+      "onOriginDarkDefault": "#fbf8ff",
+      "originLightDefault": "#b603fc",
+      "originLightHovered": "#5c0182",
+      "originLightPressed": "#9102c9",
+      "onOriginLightDefault": "#fbf8ff"
+    },
+    "blue": {
+      "origin": "#0463fb",
+      "originDarkDefault": "#0463fb",
+      "originDarkHovered": "#012e7f",
+      "originDarkPressed": "#024dc7",
+      "onOriginDarkDefault": "#f8f9ff",
+      "originLightDefault": "#0463fb",
+      "originLightHovered": "#012e7f",
+      "originLightPressed": "#024dc7",
+      "onOriginLightDefault": "#f8f9ff"
+    },
+    "cyan": {
+      "origin": "#04a9f6",
+      "originDarkDefault": "#04a9f6",
+      "originDarkHovered": "#b8daff",
+      "originDarkPressed": "#78c1ff",
+      "onOriginDarkDefault": "#000811",
+      "originLightDefault": "#04a9f6",
+      "originLightHovered": "#b8daff",
+      "originLightPressed": "#78c1ff",
+      "onOriginLightDefault": "#000811"
+    },
+    "turquoise": {
+      "origin": "#00faed",
+      "originDarkDefault": "#00faed",
+      "originDarkHovered": "#00bdb3",
+      "originDarkPressed": "#00dbd0",
+      "onOriginDarkDefault": "#000908",
+      "originLightDefault": "#00faed",
+      "originLightHovered": "#00bdb3",
+      "originLightPressed": "#00dbd0",
+      "onOriginLightDefault": "#000908"
+    },
+    "green": {
+      "origin": "#83f500",
+      "originDarkDefault": "#83f500",
+      "originDarkHovered": "#61b800",
+      "originDarkPressed": "#72d600",
+      "onOriginDarkDefault": "#020900",
+      "originLightDefault": "#83f500",
+      "originLightHovered": "#61b800",
+      "originLightPressed": "#72d600",
+      "onOriginLightDefault": "#020900"
+    }
+  }
+}

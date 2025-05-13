@@ -1,4 +1,9 @@
-import { DBButton, DBHeader, DBPage, DBTooltip } from "@db-ui/react-components";
+import {
+  DBButton,
+  DBHeader,
+  DBPage,
+  DBTooltip,
+} from "@db-ux/react-core-components";
 import { useThemeBuilderStore } from "../../store";
 import { DefaultPagePropsType } from "./data.ts";
 import { PropsWithChildren, useState } from "react";
@@ -25,12 +30,12 @@ const DefaultPage = ({
     <div
       className="contents"
       data-density={density || "regular"}
-      data-color-scheme={darkMode ? "dark" : "light"}
+      data-mode={darkMode ? "dark" : "light"}
     >
       <DBPage
         className={className}
         variant="fixed"
-        data-color="neutral-bg-basic-level-1"
+        data-color="neutral"
         header={
           <DBHeader
             drawerOpen={drawerOpen}

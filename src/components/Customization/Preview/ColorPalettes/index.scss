@@ -1,7 +1,7 @@
-@use "@db-ui/foundations/build/scss/variables";
-@use "@db-ui/foundations/build/scss/colors";
-@use "@db-ui/foundations/build/scss/screen-sizes";
-@use "@db-ui/components/build/styles/component";
+@use "@db-ux/core-foundations/build/styles/variables";
+@use "@db-ux/core-foundations/build/styles/colors";
+@use "@db-ux/core-foundations/build/styles/screen-sizes";
+@use "@db-ux/core-components/build/styles/internal/component";
 
 .palette-box {
   display: flex;
@@ -14,8 +14,12 @@
 
 .db-popover-content {
   top: calc(
-    -1 * (#{variables.$db-spacing-fixed-sm} + #{variables.$db-sizing-lg} *
-          var(--color-index, 1) + var(--color-index, 1) * #{variables.$db-spacing-fixed-2xs})
+    -1 *
+      (
+        #{variables.$db-spacing-fixed-sm} + #{variables.$db-sizing-lg} *
+          var(--color-index, 1) + var(--color-index, 1) *
+          #{variables.$db-spacing-fixed-2xs}
+      )
   ) !important;
 }
 

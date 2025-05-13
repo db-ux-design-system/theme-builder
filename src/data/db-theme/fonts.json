@@ -1,0 +1,14 @@
+{
+  "font": {
+    "family": {
+      "sans": {
+        "type": "fontFamily",
+        "value": "'DB Neo Screen Sans', Helvetica, Arial, sans-serif"
+      },
+      "head": {
+        "type": "fontFamily",
+        "value": "'DB Neo Screen Head', Helvetica, Arial, sans-serif"
+      }
+    }
+  }
+}

@@ -65,30 +65,22 @@ const getSketchColors = (
 
     result[`${prefix}-${name}/origin`] = `transparency 0%, ${origin.origin}`;
     result[`${prefix}-${name}/origin-light/default`] =
-      `transparency 0%, ${origin.originLight}`;
+      `transparency 0%, ${origin.originLightDefault}`;
     result[`${prefix}-${name}/origin-light/hovered`] =
       `transparency 0%, ${origin.originLightHovered}`;
     result[`${prefix}-${name}/origin-light/pressed`] =
       `transparency 0%, ${origin.originLightPressed}`;
     result[`${prefix}-${name}/on/origin-light/default`] =
-      `transparency 0%, ${origin.onOriginLight}`;
-    result[`${prefix}-${name}/on/origin-light/hovered`] =
-      `transparency 0%, ${origin.onOriginLightHovered}`;
-    result[`${prefix}-${name}/on/origin-light/pressed`] =
-      `transparency 0%, ${origin.onOriginLightPressed}`;
+      `transparency 0%, ${origin.onOriginLightDefault}`;
 
     result[`${prefix}-${name}/origin-dark/default`] =
-      `transparency 0%, ${origin.originDark}`;
+      `transparency 0%, ${origin.originDarkDefault}`;
     result[`${prefix}-${name}/origin-dark/hovered`] =
       `transparency 0%, ${origin.originDarkHovered}`;
     result[`${prefix}-${name}/origin-dark/pressed`] =
       `transparency 0%, ${origin.originDarkPressed}`;
     result[`${prefix}-${name}/on/origin-dark/default`] =
-      `transparency 0%, ${origin.onOriginDark}`;
-    result[`${prefix}-${name}/on/origin-dark/hovered`] =
-      `transparency 0%, ${origin.onOriginDarkHovered}`;
-    result[`${prefix}-${name}/on/origin-dark/pressed`] =
-      `transparency 0%, ${origin.onOriginDarkPressed}`;
+      `transparency 0%, ${origin.onOriginDarkDefault}`;
   }
   return result;
 };

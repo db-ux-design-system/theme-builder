@@ -4,7 +4,7 @@ import { TabItemType } from "./data.ts";
 import ComponentContainer from "../../components/Customization/Preview/ComponentContainer";
 import ColorPalettes from "../../components/Customization/Preview/ColorPalettes";
 import DefaultPage from "../../components/DefaultPage";
-import { DBDivider, DBInput } from "@db-ui/react-components";
+import { DBDivider, DBInput } from "@db-ux/react-core-components";
 import ActionBar from "../../components/Customization/ActionBar";
 import { useThemeBuilderStore } from "../../store";
 import SpeakingColors from "../../components/Customization/Preview/SpeakingColors";
@@ -72,14 +72,12 @@ const Customization = () => {
 
           <Scaling label="sizing" params={["sizing"]} />
 
-          <Scaling label="elevation" params={["elevation"]} />
-
-          <Scaling label="borderHeight" params={["border", "height"]} />
+          <Scaling label="borderWidth" params={["border", "height"]} />
 
           <Scaling label="borderRadius" params={["border", "radius"]} />
         </div>
         <div
-          className="db-neutral-bg-basic-level-2 p-fix-sm md:p-res-sm
+          className="db-bg-color-basic-level-2 p-fix-sm md:p-res-sm
       flex flex-col gap-res-sm w-full md:overflow-auto"
         >
           <Tabs tabs={tabs} />
