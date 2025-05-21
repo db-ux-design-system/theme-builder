@@ -180,11 +180,11 @@
     },
     "burgundy": {
       "origin": "#a9455d",
-      "originDarkDefault": "#fcf8f9",
+      "originDarkDefault": "#a9455d",
       "originDarkHovered": "#4f1c28",
       "originDarkPressed": "#833447",
       "onOriginDarkDefault": "#fcf8f9",
-      "originLightDefault": "#fcf8f9",
+      "originLightDefault": "#a9455d",
       "originLightHovered": "#4f1c28",
       "originLightPressed": "#833447",
       "onOriginLightDefault": "#fcf8f9"
