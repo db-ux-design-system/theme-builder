@@ -166,6 +166,17 @@
       "originLightHovered": "#88e221",
       "originLightPressed": "#75c31b",
       "onOriginLightDefault": "#030900"
+    },
+    "burgundy": {
+      "origin": "#a9455d",
+      "originDarkDefault": "#fcf8f9",
+      "originDarkHovered": "#4f1c28",
+      "originDarkPressed": "#833447",
+      "onOriginDarkDefault": "#a9455d",
+      "originLightDefault": "#fcf8f9",
+      "originLightHovered": "#4f1c28",
+      "originLightPressed": "#833447",
+      "onOriginLightDefault": "#a9455d"
     }
   }
 }
