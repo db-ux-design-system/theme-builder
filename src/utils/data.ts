@@ -57,7 +57,7 @@ export type AdditionalColorMappingType = {
   blue: DefaultColorType;
   cyan: DefaultColorType;
   turquoise: DefaultColorType;
-  green: DefaultColorType;
+  "green-light": DefaultColorType;
 };
 
 export type ThemeValue<T> = {

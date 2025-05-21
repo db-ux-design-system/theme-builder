@@ -156,7 +156,7 @@
       "originLightPressed": "#00dbd0",
       "onOriginLightDefault": "#000908"
     },
-    "green": {
+    "green-light": {
       "origin": "#83f500",
       "originDarkDefault": "#83f500",
       "originDarkHovered": "#61b800",
