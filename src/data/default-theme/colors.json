@@ -156,6 +156,17 @@
       "originLightPressed": "#00dbd0",
       "onOriginLightDefault": "#000908"
     },
+    "green": {
+      "origin": "#408335",
+      "originDarkDefault": "#408335",
+      "originDarkHovered": "#1c4116",
+      "originDarkPressed": "#316828",
+      "onOriginDarkDefault": "#f7fef6",
+      "originLightDefault": "#408335",
+      "originLightHovered": "#1c4116",
+      "originLightPressed": "#316828",
+      "onOriginLightDefault": "#f7fef6"
+    },
     "green-light": {
       "origin": "#83f500",
       "originDarkDefault": "#83f500",
