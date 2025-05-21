@@ -183,11 +183,11 @@
       "originDarkDefault": "#fcf8f9",
       "originDarkHovered": "#4f1c28",
       "originDarkPressed": "#833447",
-      "onOriginDarkDefault": "#a9455d",
+      "onOriginDarkDefault": "#fcf8f9",
       "originLightDefault": "#fcf8f9",
       "originLightHovered": "#4f1c28",
       "originLightPressed": "#833447",
-      "onOriginLightDefault": "#a9455d"
+      "onOriginLightDefault": "#fcf8f9"
     }
   }
 }
