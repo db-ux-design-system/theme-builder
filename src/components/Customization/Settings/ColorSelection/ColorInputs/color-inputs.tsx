@@ -18,6 +18,8 @@ const ColorInputs = ({
   contrastGroups,
 }: ColorInputsType) => {
   const { t } = useTranslation();
+  const colors    = [color, hoveredColor, pressedColor];
+  const labelKeys = ["colorDefault", "colorHovered", "colorPressed"];
   return (
     <>
       <DBDivider />
@@ -50,7 +52,7 @@ const ColorInputs = ({
           </div>
         </div>
       ))}
-      {[color, hoveredColor, pressedColor]
+      { colors
         .filter((color) => Boolean(color))
         .map((color, index) => (
           <div
@@ -58,7 +60,7 @@ const ColorInputs = ({
             className="grid grid-cols-2 gap-fix-md"
           >
             <DBInput
-              label={t("colorInputPicker")}
+              label={t(labelKeys[index])}
               type="color"
               readOnly={index !== 0}
               value={color}

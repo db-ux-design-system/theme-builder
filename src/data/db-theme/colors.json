@@ -157,15 +157,37 @@
       "onOriginLightDefault": "#000908"
     },
     "green": {
-      "origin": "#63A615",
-      "originDarkDefault": "#63A615",
+      "origin": "#408335",
+      "originDarkDefault": "#408335",
+      "originDarkHovered": "#1c4116",
+      "originDarkPressed": "#316828",
+      "onOriginDarkDefault": "#f7fef6",
+      "originLightDefault": "#408335",
+      "originLightHovered": "#1c4116",
+      "originLightPressed": "#316828",
+      "onOriginLightDefault": "#f7fef6"
+    },
+    "green-light": {
+      "origin": "#63a615",
+      "originDarkDefault": "#63a615",
       "originDarkHovered": "#88e221",
       "originDarkPressed": "#75c31b",
       "onOriginDarkDefault": "#030900",
-      "originLightDefault": "#63A615",
+      "originLightDefault": "#63a615",
       "originLightHovered": "#88e221",
       "originLightPressed": "#75c31b",
       "onOriginLightDefault": "#030900"
+    },
+    "burgundy": {
+      "origin": "#a9455d",
+      "originDarkDefault": "#a9455d",
+      "originDarkHovered": "#4f1c28",
+      "originDarkPressed": "#833447",
+      "onOriginDarkDefault": "#fcf8f9",
+      "originLightDefault": "#a9455d",
+      "originLightHovered": "#4f1c28",
+      "originLightPressed": "#833447",
+      "onOriginLightDefault": "#fcf8f9"
     }
   },
   "customColors": {}
