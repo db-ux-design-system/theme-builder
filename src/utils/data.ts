@@ -58,7 +58,7 @@ export type AdditionalColorMappingType = {
   cyan: DefaultColorType;
   turquoise: DefaultColorType;
   green: DefaultColorType;
-  "green-light": DefaultColorType;
+  "light-green": DefaultColorType;
   burgundy: DefaultColorType;
 };
 
