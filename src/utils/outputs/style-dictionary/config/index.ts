@@ -34,6 +34,9 @@ export const platformsConfig: Config = {
           format: "css/variables",
           filter: (token: TransformedToken) =>
             scaleFilter(token) && !semanticColorFilter(token),
+          options: {
+            selector: ":is(:root, :host)"
+         }
         },
       ],
     },
