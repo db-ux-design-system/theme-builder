@@ -4,6 +4,7 @@ import Elevation from "../data/default-theme/elevation.json";
 import Fonts from "../data/default-theme/fonts.json";
 import Sizing from "../data/default-theme/sizing.json";
 import Spacing from "../data/default-theme/spacing.json";
+import Opacity from "../data/default-theme/opacity.json";
 import Transition from "../data/default-theme/transition.json";
 import TypographyRegular from "../data/default-theme/typography/regular.json";
 import TypographyExpressive from "../data/default-theme/typography/expressive.json";
@@ -26,6 +27,7 @@ export const defaultTheme: ThemeType = {
   ...Sizing,
   ...Spacing,
   ...Transition,
+  ...Opacity,
   typography: {
     ...TypographyRegular.typography,
     ...TypographyExpressive.typography,

@@ -1,0 +1,15 @@
+{
+  "opacity": {
+    "_scale": { "value": "100%" },
+    "3xs": { "value": "0.08", "type": "number" },
+    "2xs": { "value": "0.16", "type": "number" },
+    "xs": { "value": "0.24", "type": "number" },
+    "sm": { "value": "0.32", "type": "number" },
+    "md": { "value": "0.4", "type": "number" },
+    "lg": { "value": "0.68", "type": "number" },
+    "xl": { "value": "0.76", "type": "number" },
+    "2xl": { "value": "0.84", "type": "number" },
+    "3xl": { "value": "0.92", "type": "number" },
+    "full": { "value": "1", "type": "number" }
+  }
+}

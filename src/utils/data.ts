@@ -166,6 +166,9 @@ export type ThemeType = {
   typography: ThemeTonalities;
   elevation: ElevationType;
   border: ThemeBorder;
+  opacity: {
+    full?: ThemeValue<string> | ThemeValue<ThemeTypographyType>;
+  } & ThemeSizing;
   colors: DefaultColorMappingType;
   additionalColors: AdditionalColorMappingType;
   customColors?: Record<string, DefaultColorType>;
