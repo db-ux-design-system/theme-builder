@@ -40,12 +40,12 @@ const ColorPicker = ({
   const getWarningIcon = useCallback(() => {
     if (isAddColor) {
       return undefined;
-    } else if (!color.originDarkAccessible || !color.originLightAccessible) {
+    } else if ((!color.originDarkAccessible || !color.originLightAccessible) && !setOriginColor) {
       return "exclamation_mark_triangle";
     } else {
       return undefined;
     }
-  }, [isAddColor, color]);
+  }, [isAddColor, color, setOriginColor]);
 
   return (
     <div className="color-picker-container">
