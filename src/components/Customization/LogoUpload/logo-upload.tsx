@@ -1,9 +1,9 @@
 import { useThemeBuilderStore } from "../../../store";
 import { memo } from "react";
-import { getThemeImage } from "../../../utils";
 import Upload from "../Upload";
 import { useTranslation } from "react-i18next";
 import { DBDivider, DBInfotext } from "@db-ux/react-core-components";
+import { getThemeImage } from "../../../utils/image.ts";
 
 const LogoUpload = memo(() => {
   const { t } = useTranslation();

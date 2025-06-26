@@ -1,13 +1,5 @@
 import chroma from "chroma-js";
-import { BASE_PATH, FALLBACK_COLOR } from "../constants.ts";
-
-export const getThemeImage = (image: string): string => {
-  if (image.startsWith("data:image")) {
-    return image;
-  }
-
-  return `${BASE_PATH}/assets/images/${image || "peace-in-a-box.svg"}`;
-};
+import { FALLBACK_COLOR } from "../constants.ts";
 
 export const isValidColor = (color: string): boolean => chroma.valid(color);
 

@@ -25,4 +25,3 @@ export const getPalette = (
       (previousValue, currentValue) => ({ ...previousValue, ...currentValue }),
       {},
     );
-
