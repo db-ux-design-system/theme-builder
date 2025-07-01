@@ -18,7 +18,7 @@ const ColorInputs = ({
   contrastGroups,
 }: ColorInputsType) => {
   const { t } = useTranslation();
-  const colors    = [color, hoveredColor, pressedColor];
+  const colors = [color, hoveredColor, pressedColor];
   const labelKeys = ["colorDefault", "colorHovered", "colorPressed"];
   return (
     <>
@@ -52,7 +52,7 @@ const ColorInputs = ({
           </div>
         </div>
       ))}
-      { colors
+      {colors
         .filter((color) => Boolean(color))
         .map((color, index) => (
           <div

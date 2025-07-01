@@ -11,12 +11,12 @@ import {
 } from "react-router-dom";
 
 import "./i18n";
-import { BASE_PATH } from "./constants.ts";
 import AppRoutes from "./utils/app-routes.tsx";
 
 import "@db-ux/core-components/build/styles/rollup.css";
 import "@db-ux/db-theme/build/styles/rollup.css";
 import "./font-face.css";
+import { BASE_PATH } from "./environment.ts";
 
 const router = createBrowserRouter(
   createRoutesFromElements([

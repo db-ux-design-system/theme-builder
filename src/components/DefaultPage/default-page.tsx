@@ -7,9 +7,9 @@ import {
 import { useThemeBuilderStore } from "../../store";
 import { DefaultPagePropsType } from "./data.ts";
 import { PropsWithChildren, useState } from "react";
-import { getThemeImage } from "../../utils";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { getThemeImage } from "../../utils/image.ts";
 
 const DefaultPage = ({
   name,

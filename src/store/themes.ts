@@ -20,6 +20,9 @@ import DBFonts from "../data/db-theme/fonts.json";
 import SBahnBranding from "../data/sbahn-theme/branding.json";
 import SBahnBColors from "../data/sbahn-theme/colors.json";
 
+import SabColors from "../data/sab-theme/colors.json";
+import SabBranding from "../data/sab-theme/branding.json";
+
 export const defaultTheme: ThemeType = {
   ...Border,
   ...Elevation,
@@ -49,4 +52,10 @@ export const sBahnTheme: ThemeType = {
   ...SBahnBranding,
   ...SBahnBColors,
   ...DBFonts,
+};
+
+export const sabTheme: ThemeType = {
+  ...dbTheme,
+  ...SabBranding,
+  ...SabColors,
 };
