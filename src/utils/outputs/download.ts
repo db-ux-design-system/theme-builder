@@ -192,11 +192,12 @@ export const downloadTheme = async (
       `${webFolder}/${customColorsFolder}/classes/all.css`,
       allCustomColorClasses,
     );
-
+if (Object.keys(theme.customColors).length > 0) {
     zip.file(
       `${utilsFolder}/${fileName}-figma-custom-colors.json`,
       getFigmaColors(speakingNames, luminanceSteps, theme.customColors),
     );
+}
   }
 
   const zipFile = await zip.generateAsync({ type: "blob" });
