@@ -34,6 +34,7 @@ import {
 } from "./style-dictionary/colors.ts";
 import { platformsConfig } from "./style-dictionary/config";
 import { getSDBaseIconProps } from "./style-dictionary/typography.ts";
+import { getFigmaColors } from "./figma.ts";
 
 const download = (fileName: string, file: Blob) => {
   const element = document.createElement("a");
@@ -190,6 +191,11 @@ export const downloadTheme = async (
     zip.file(
       `${webFolder}/${customColorsFolder}/classes/all.css`,
       allCustomColorClasses,
+    );
+
+    zip.file(
+      `${utilsFolder}/${fileName}-figma-custom-colors.json`,
+      getFigmaColors(speakingNames, luminanceSteps, theme.customColors),
     );
   }
 
