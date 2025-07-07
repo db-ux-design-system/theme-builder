@@ -2,9 +2,12 @@ import { DefaultColorType, SpeakingName } from "../data.ts";
 import { getHeissluftColors } from "../generate-colors.ts";
 import chroma from "chroma-js";
 
+interface FigmaColorToken { $type: "color"; $value: string }
+type FigmaColorSet = Record<string, FigmaColorToken>
+
 const addTransparentColors = (
   speakingNames: SpeakingName[],
-  color: Record<string, { $type: string; $value: string }>,
+  color: FigmaColorSet,
 ) => {
   const transparentFullDefault: any = speakingNames.find(({ name }) =>
     name.includes("bg-basic-transparent-full-default"),
@@ -63,7 +66,7 @@ export const getFigmaColors = (
 ): string => {
   const result: Record<string, any> = {};
   Object.entries(customColors).forEach(([key, value]) => {
-    let color: Record<string, { $type: string; $value: string }> = {};
+    let color: FigmaColorSet= {};
     const hslColors = getHeissluftColors(key, value.origin, luminanceSteps);
     hslColors.forEach((hslColor, index) => {
       color[index] = {
@@ -71,8 +74,6 @@ export const getFigmaColors = (
         $value: hslColor.hex,
       };
     });
-
-    console.log(key, value);
 
     color = {
       ...color,
