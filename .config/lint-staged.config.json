@@ -1,0 +1,3 @@
+{
+  "*.{ts,tsx}": "eslint --report-unused-disable-directives --fix"
+}
