@@ -37,11 +37,17 @@ export const generateCustomColorClass = (colorName: string): string => {
   --db-adaptive-bg-basic-transparent-semi-default: var(
   	--db-${colorName}-bg-basic-transparent-semi-default
   );
-  --db-adaptive-bg-basic-transparent-hovered: var(
-  	--db-${colorName}-bg-basic-transparent-hovered
+  --db-adaptive-bg-basic-transparent-full-hovered: var(
+  	--db-${colorName}-bg-basic-transparent-full-hovered
   );
-  --db-adaptive-bg-basic-transparent-pressed: var(
-  	--db-${colorName}-bg-basic-transparent-pressed
+  --db-adaptive-bg-basic-transparent-full-pressed: var(
+  	--db-${colorName}-bg-basic-transparent-full-pressed
+  );
+  --db-adaptive-bg-basic-transparent-semi-hovered: var(
+  	--db-${colorName}-bg-basic-transparent-semi-hovered
+  );
+  --db-adaptive-bg-basic-transparent-semi-pressed: var(
+  	--db-${colorName}-bg-basic-transparent-semi-pressed
   );
   --db-adaptive-on-bg-basic-emphasis-100-default: var(
   	--db-${colorName}-on-bg-basic-emphasis-100-default
