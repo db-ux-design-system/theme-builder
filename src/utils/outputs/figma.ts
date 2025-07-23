@@ -2,8 +2,11 @@ import { DefaultColorType, SpeakingName } from "../data.ts";
 import { getHeissluftColors } from "../generate-colors.ts";
 import chroma from "chroma-js";
 
-interface FigmaColorToken { $type: "color"; $value: string }
-type FigmaColorSet = Record<string, FigmaColorToken>
+interface FigmaColorToken {
+  $type: "color";
+  $value: string;
+}
+type FigmaColorSet = Record<string, FigmaColorToken>;
 
 const addTransparentColors = (
   speakingNames: SpeakingName[],
@@ -15,43 +18,59 @@ const addTransparentColors = (
   const transparentSemiDefault: any = speakingNames.find(({ name }) =>
     name.includes("bg-basic-transparent-semi-default"),
   )!;
-  const transparentHovered: any = speakingNames.find(({ name }) =>
-    name.includes("bg-basic-transparent-hovered"),
+  const transparentFullHovered: any = speakingNames.find(({ name }) =>
+    name.includes("bg-basic-transparent-full-hovered"),
   )!;
-  const transparentPressed: any = speakingNames.find(({ name }) =>
-    name.includes("bg-basic-transparent-pressed"),
+  const transparentFullPressed: any = speakingNames.find(({ name }) =>
+    name.includes("bg-basic-transparent-full-pressed"),
+  )!;
+  const transparentSemiHovered: any = speakingNames.find(({ name }) =>
+    name.includes("bg-basic-transparent-semi-hovered"),
+  )!;
+  const transparentSemiPressed: any = speakingNames.find(({ name }) =>
+    name.includes("bg-basic-transparent-semi-pressed"),
   )!;
 
-  for (const [key1, value1] of Object.entries({
-    full: transparentFullDefault,
-    semi: transparentSemiDefault,
-  })) {
+  for (const { def, key, pressed, hovered } of [
+    {
+      key: "full",
+      def: transparentFullDefault,
+      hovered: transparentFullHovered,
+      pressed: transparentFullPressed,
+    },
+    {
+      key: "semi",
+      def: transparentSemiDefault,
+      hovered: transparentSemiHovered,
+      pressed: transparentSemiPressed,
+    },
+  ]) {
     for (const mode of ["light", "dark"]) {
       const transparency =
-        mode === "light" ? value1.transparencyLight : value1.transparencyDark;
+        mode === "light" ? def.transparencyLight : def.transparencyDark;
       const transparencyHover =
         mode === "light"
-          ? transparentHovered.transparencyLight
-          : transparentHovered.transparencyDark;
+          ? hovered.transparencyLight
+          : hovered.transparencyDark;
       const transparencyPressed =
         mode === "light"
-          ? transparentPressed.transparencyLight
-          : transparentPressed.transparencyDark;
-      color[`transparent-${key1}-${mode}-default`] = {
+          ? pressed.transparencyLight
+          : pressed.transparencyDark;
+      color[`transparent-${key}-${mode}-default`] = {
         $type: "color",
-        $value: chroma(color[value1[mode]].$value)
+        $value: chroma(color[def[mode]].$value)
           .alpha((100 - transparency) / 100)
           .hex("rgba"),
       };
-      color[`transparent-${key1}-${mode}-hovered`] = {
+      color[`transparent-${key}-${mode}-hovered`] = {
         $type: "color",
-        $value: chroma(color[transparentHovered[mode]].$value)
+        $value: chroma(color[hovered[mode]].$value)
           .alpha((100 - transparencyHover) / 100)
           .hex("rgba"),
       };
-      color[`transparent-${key1}-${mode}-pressed`] = {
+      color[`transparent-${key}-${mode}-pressed`] = {
         $type: "color",
-        $value: chroma(color[transparentPressed[mode]].$value)
+        $value: chroma(color[pressed[mode]].$value)
           .alpha((100 - transparencyPressed) / 100)
           .hex("rgba"),
       };
@@ -66,7 +85,7 @@ export const getFigmaColors = (
 ): string => {
   const result: Record<string, any> = {};
   Object.entries(customColors).forEach(([key, value]) => {
-    let color: FigmaColorSet= {};
+    let color: FigmaColorSet = {};
     const hslColors = getHeissluftColors(key, value.origin, luminanceSteps);
     hslColors.forEach((hslColor, index) => {
       color[index] = {
