@@ -86,16 +86,6 @@ const getHoverPressedColors = (onOrigin: string, originColor: string) => {
   pressedHsluv.hsluvToHex();
   const pressedColor = pressedHsluv.hex;
 
-  console.log(
-    originColor,
-    originLuminance,
-    onOrigin,
-    onOriginHsluv.hsluv_l,
-    tryDarken,
-    hoveredHsluv,
-    pressedHsluv,
-  );
-
   return { hoverColor, pressedColor };
 };
 
