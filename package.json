@@ -68,6 +68,7 @@
     "eslint": "^8.57.1",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.16",
+    "lint-staged": "^16.1.2",
     "ncp": "^2.0.0",
     "npm-run-all2": "^7.0.2",
     "postcss": "^8.5.1",

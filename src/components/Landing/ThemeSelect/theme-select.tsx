@@ -15,13 +15,19 @@ import {
   ThemeType,
   speakingNamesDefaultMapping,
 } from "../../../utils/data.ts";
-import { getThemeImage } from "../../../utils";
-import { dbTheme, defaultTheme, sBahnTheme } from "../../../store/themes.ts";
+import {
+  dbTheme,
+  defaultTheme,
+  sabTheme,
+  sBahnTheme,
+} from "../../../store/themes.ts";
+import { getThemeImage } from "../../../utils/image.ts";
 
 const themes: Record<string, ThemeType> = {
   neutralTheme: defaultTheme,
   dbTheme: dbTheme,
   sbahnTheme: sBahnTheme,
+  sabTheme: sabTheme,
 };
 
 const ThemeSelect = () => {

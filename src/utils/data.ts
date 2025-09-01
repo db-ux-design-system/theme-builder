@@ -217,6 +217,20 @@ export const speakingNamesDefaultMapping: SpeakingName[] = [
     transparencyLight: 100,
   },
   {
+    name: "bg-basic-transparent-full-hovered",
+    dark: 9,
+    light: 6,
+    transparencyDark: 76,
+    transparencyLight: 76,
+  },
+  {
+    name: "bg-basic-transparent-full-pressed",
+    dark: 9,
+    light: 6,
+    transparencyDark: 68,
+    transparencyLight: 68,
+  },
+  {
     name: "bg-basic-transparent-semi-default",
     dark: 9,
     light: 6,
@@ -224,14 +238,14 @@ export const speakingNamesDefaultMapping: SpeakingName[] = [
     transparencyLight: 92,
   },
   {
-    name: "bg-basic-transparent-hovered",
+    name: "bg-basic-transparent-semi-hovered",
     dark: 9,
     light: 6,
     transparencyDark: 76,
     transparencyLight: 76,
   },
   {
-    name: "bg-basic-transparent-pressed",
+    name: "bg-basic-transparent-semi-pressed",
     dark: 9,
     light: 6,
     transparencyDark: 68,

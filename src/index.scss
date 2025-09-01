@@ -4,22 +4,23 @@
 @use "@db-ux/core-components/build/styles/internal/db-puls" as puls;
 
 [data-focus="true"] {
+  inset-inline-end: calc(-1 * #{variables.$db-spacing-fixed-xs});
+
   @extend %db-puls;
   @include puls.set-db-puls-vertical();
   @include puls.show-db-puls-vertical();
-  inset-inline-end: calc(-1 * #{variables.$db-spacing-fixed-xs});
 }
 
 :root {
   --db-drawer-max-height: 100%;
   --db-drawer-max-width: 90%;
 
+  block-size: 100%;
+
   @media screen and (min-width: screen-sizes.$db-breakpoint-md) {
     --db-drawer-max-height: 50%;
     --db-drawer-max-width: 33%;
   }
-
-  block-size: 100%;
 }
 
 .db-accordion-item {

@@ -1,0 +1,15 @@
+{
+  "customColors": {
+    "primary": {
+      "origin": "#006A96",
+      "originDarkDefault": "#006A96",
+      "originDarkHovered": "#002d43",
+      "originDarkPressed": "#005173",
+      "onOriginDarkDefault": "#f5faff",
+      "originLightDefault": "#006A96",
+      "originLightHovered": "#002d43",
+      "originLightPressed": "#005173",
+      "onOriginLightDefault": "#f5faff"
+    }
+  }
+}

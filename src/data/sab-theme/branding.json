@@ -1,0 +1,6 @@
+{
+  "branding": {
+    "name": "sab",
+    "image": { "light": "sab_logo.svg", "dark": "sab_logo.svg" }
+  }
+}
