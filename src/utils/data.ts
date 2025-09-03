@@ -264,7 +264,7 @@ export const speakingNamesDefaultMapping: SpeakingName[] = [
   { name: "on-bg-basic-emphasis-70-hovered", dark: 10, light: 4 },
   { name: "on-bg-basic-emphasis-70-pressed", dark: 9, light: 6 },
   { name: "on-bg-basic-emphasis-60-default", dark: 6, light: 10 },
-  { name: "on-bg-basic-emphasis-50-default", dark: 5, light: 9 },
+  { name: "on-bg-basic-emphasis-50-default", dark: 3, light: 12 },
   { name: "bg-inverted-contrast-max-default", dark: 12, light: 1 },
   { name: "bg-inverted-contrast-max-hovered", dark: 9, light: 5 },
   { name: "bg-inverted-contrast-max-pressed", dark: 11, light: 2 },
