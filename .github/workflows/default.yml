@@ -21,7 +21,7 @@ jobs:
           ASSET_PASSWORD: ${{ secrets.ASSET_PASSWORD }}
 
       - name: ⏬ Get branch name
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         id: get-branch-name
         with:
           result-encoding: string
