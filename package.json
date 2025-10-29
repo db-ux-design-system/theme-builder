@@ -77,5 +77,6 @@
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.2",
     "vite": "^6.1.0"
-  }
+  },
+  "packageManager": "npm@11.5.2"
 }
