@@ -37,7 +37,7 @@ const ActionBar = () => {
       />
       <DBButton
         variant="brand"
-        icon="download"
+        icon="upload"
         onClick={() => downloadTheme(speakingNames, luminanceSteps, theme)}
       >
         {t("export")}

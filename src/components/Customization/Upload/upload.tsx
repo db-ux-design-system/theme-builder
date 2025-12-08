@@ -20,7 +20,7 @@ const Upload = memo(
     return (
       <label
         className="upload-button relative"
-        data-icon="upload"
+        data-icon="download"
         data-size={size}
         data-variant={variant}
         data-no-text={noText}
@@ -41,7 +41,7 @@ const Upload = memo(
                 () => {
                   onUpload(reader.result as string);
                 },
-                false,
+                false
               );
               reader.readAsDataURL(files[0]);
             }
@@ -50,7 +50,7 @@ const Upload = memo(
         {tooltip && <DBTooltip placement="bottom">{t(tooltip)}</DBTooltip>}
       </label>
     );
-  },
+  }
 );
 
 export default Upload;
