@@ -74,7 +74,7 @@ const ThemeSelect = () => {
                     src={getThemeImage(
                       darkMode && theme.branding.image.dark
                         ? theme.branding.image.dark
-                        : theme.branding.image.light,
+                        : theme.branding.image.light
                     )}
                     alt="brand"
                   />
@@ -96,7 +96,7 @@ const ThemeSelect = () => {
           </div>
         </div>
         <div className="flex col-span-2 relative">
-          <div className="scale-down w-full md:w-[100vw] md:h-[100vh] md:absolute">
+          <div className="scale-down w-full xl:w-[75vw] md:w-[100vw] md:h-[100vh] md:absolute">
             <Demo linkToDemo />
           </div>
         </div>
