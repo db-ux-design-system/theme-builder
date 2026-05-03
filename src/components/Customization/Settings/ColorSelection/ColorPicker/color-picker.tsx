@@ -165,6 +165,7 @@ const ColorPicker = ({
                         originLightAccessible,
                         originLightPressed,
                         originLightHovered,
+                        onOriginLightDefault,
                       } = generateColorsByOrigin({
                         origin: color.origin,
                         darkMode: false,
@@ -177,6 +178,7 @@ const ColorPicker = ({
                         originLightAccessible,
                         originLightPressed,
                         originLightHovered,
+                        onOriginLightDefault,
                       });
                     }
                   }}
@@ -241,6 +243,7 @@ const ColorPicker = ({
                         originDarkAccessible,
                         originDarkPressed,
                         originDarkHovered,
+                        onOriginDarkDefault,
                       } = generateColorsByOrigin({
                         origin: color.origin,
                         darkMode: true,
@@ -253,6 +256,7 @@ const ColorPicker = ({
                         originDarkAccessible,
                         originDarkPressed,
                         originDarkHovered,
+                        onOriginDarkDefault,
                       });
                     }
                   }}
