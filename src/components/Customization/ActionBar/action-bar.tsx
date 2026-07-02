@@ -38,7 +38,22 @@ const ActionBar = () => {
       <DBButton
         variant="brand"
         icon="upload"
-        onClick={() => downloadTheme(speakingNames, luminanceSteps, theme)}
+        onClick={() => {
+          downloadTheme(speakingNames, luminanceSteps, theme)
+            .then(({ skipped }) => {
+              if (skipped.length > 0) {
+                useThemeBuilderStore.setState({
+                  notification: t("exportPartial"),
+                });
+              }
+            })
+            .catch((error) => {
+              useThemeBuilderStore.setState({
+                notification: t("exportError"),
+              });
+              console.error(error);
+            });
+        }}
       >
         {t("export")}
       </DBButton>

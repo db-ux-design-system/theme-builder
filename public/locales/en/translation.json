@@ -50,6 +50,8 @@
   "errorMessage": "Oops, something went wrong.",
   "export": "Export",
   "exportDesc": "Export theme",
+  "exportError": "The export could not be created. Please try again.",
+  "exportPartial": "The export was created, but some optional files could not be generated.",
   "fastestConnection": "Show fastest connection",
   "folder_open": "Dashboard",
   "forgotPassword": "Forgot password?",
