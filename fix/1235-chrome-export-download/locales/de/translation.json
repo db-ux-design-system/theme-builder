@@ -55,8 +55,6 @@
   "errorMessage": "Uups, da ist wohl etwas schief gegangen.",
   "export": "Export",
   "exportDesc": "Exportiere Theme",
-  "exportError": "Der Export konnte nicht erstellt werden. Bitte versuche es erneut.",
-  "exportPartial": "Der Export wurde erstellt, einzelne optionale Dateien konnten jedoch nicht erzeugt werden.",
   "fastestConnection": "Schnellste Verbindungen anzeigen",
   "folder_open": "Übersicht",
   "forgotPassword": "Passwort vergessen?",
