@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 import { getFigmaColors } from "./figma.ts";
-import { DefaultColorType, SpeakingName } from "../data.ts";
+import { generateColorsByOrigin } from "../../components/Customization/Settings/ColorSelection/ColorPicker/data.ts";
+import {
+  DefaultColorType,
+  SpeakingName,
+  speakingNamesDefaultMapping,
+} from "../data.ts";
 
 const luminanceSteps = [9, 20, 35, 50, 65, 80, 90, 96, 99];
 
@@ -84,5 +89,35 @@ describe("getFigmaColors", () => {
   it("handles an empty custom colors map", () => {
     const parsed = JSON.parse(getFigmaColors(transparentSpeakingNames, luminanceSteps, {}));
     expect(parsed).toEqual({ colors: {} });
+  });
+
+  // Real-world trigger of #1235: a user with persisted store state from an app
+  // version before the "bg-basic-transparent-*" speaking names existed. Zustand
+  // rehydrates the stale speakingNames (the store has no version/migrate/
+  // partialize), so the transparent entries are missing. Combined with a custom
+  // color this crashed the old export and prevented any download.
+  it("does not throw with stale persisted speakingNames + a real custom color (regression #1235)", () => {
+    const staleSpeakingNames = speakingNamesDefaultMapping.filter(
+      ({ name }) => !name.includes("transparent"),
+    );
+    const realCustomColor = generateColorsByOrigin({
+      origin: "#e6007e",
+      darkMode: false,
+    });
+
+    let json = "";
+    expect(() => {
+      json = getFigmaColors(staleSpeakingNames, luminanceSteps, {
+        brand: realCustomColor,
+      });
+    }).not.toThrow();
+
+    const parsed = JSON.parse(json);
+    // Every emitted token must be a valid color token with a non-empty value.
+    for (const token of Object.values<any>(parsed.colors.brand)) {
+      expect(token.$type).toBe("color");
+      expect(typeof token.$value).toBe("string");
+      expect(token.$value.length).toBeGreaterThan(0);
+    }
   });
 });
