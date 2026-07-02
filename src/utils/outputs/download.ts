@@ -37,18 +37,12 @@ import { getSDBaseIconProps } from "./style-dictionary/typography.ts";
 import { getFigmaColors } from "./figma.ts";
 
 const download = (fileName: string, file: Blob) => {
-  const url = URL.createObjectURL(file);
   const element = document.createElement("a");
-  element.href = url;
+  element.href = URL.createObjectURL(file);
   element.download = fileName;
   document.body.appendChild(element);
   element.click();
-  // Defer cleanup so Chromium-based browsers reliably start the download
-  // before the anchor is removed, and free the object URL to avoid leaks.
-  setTimeout(() => {
-    document.body.removeChild(element);
-    URL.revokeObjectURL(url);
-  }, 0);
+  document.body.removeChild(element);
 };
 
 export const downloadPlayground = async (files: Record<string, string>) => {
@@ -60,16 +54,11 @@ export const downloadPlayground = async (files: Record<string, string>) => {
   download(`Playground.zip`, zipFile);
 };
 
-export type DownloadThemeResult = {
-  skipped: string[];
-};
-
 export const downloadTheme = async (
   speakingNames: SpeakingName[],
   luminanceSteps: number[],
   theme: ThemeType,
-): Promise<DownloadThemeResult> => {
-  const skipped: string[] = [];
+) => {
   const allColors: Record<string, DefaultColorType> = {
     ...theme.colors,
     ...theme.additionalColors,
@@ -204,26 +193,13 @@ export const downloadTheme = async (
       allCustomColorClasses,
     );
 if (Object.keys(theme.customColors).length > 0) {
-    try {
-      zip.file(
-        `${utilsFolder}/${fileName}-figma-custom-colors.json`,
-        getFigmaColors(speakingNames, luminanceSteps, theme.customColors),
-      );
-    } catch (error) {
-      // The Figma custom-colors export is optional. If it fails (e.g. an
-      // imported custom theme with incomplete color data), skip just this file
-      // instead of aborting the whole download.
-      console.error(
-        "Failed to generate Figma custom colors export, skipping file:",
-        error,
-      );
-      skipped.push(`${fileName}-figma-custom-colors.json`);
-    }
+    zip.file(
+      `${utilsFolder}/${fileName}-figma-custom-colors.json`,
+      getFigmaColors(speakingNames, luminanceSteps, theme.customColors),
+    );
 }
   }
 
   const zipFile = await zip.generateAsync({ type: "blob" });
   download(`${fileName}.zip`, zipFile);
-
-  return { skipped };
 };
