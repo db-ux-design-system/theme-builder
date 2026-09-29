@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useCallback, useState } from "react";
-import { ColorPickerType, generateColorsByOrigin } from "./data";
+import {
+  ColorPickerType,
+  generateColorsByOrigin,
+  generateOnColorForBackgroundChange,
+} from "./data";
 import "./index.scss";
 import {
   DBButton,
@@ -160,24 +164,9 @@ const ColorPicker = ({
                   ]}
                   onColorChange={(col) => {
                     if (setOriginColor) {
-                      const {
-                        originLightDefault,
-                        originLightAccessible,
-                        originLightPressed,
-                        originLightHovered,
-                      } = generateColorsByOrigin({
-                        origin: color.origin,
-                        darkMode: false,
-                        customBgColor: col,
-                      });
-
-                      setOriginColor({
-                        ...color,
-                        originLightDefault,
-                        originLightAccessible,
-                        originLightPressed,
-                        originLightHovered,
-                      });
+                      setOriginColor(
+                        generateOnColorForBackgroundChange(color, false, col),
+                      );
                     }
                   }}
                 />
@@ -236,24 +225,9 @@ const ColorPicker = ({
                   ]}
                   onColorChange={(col) => {
                     if (setOriginColor) {
-                      const {
-                        originDarkDefault,
-                        originDarkAccessible,
-                        originDarkPressed,
-                        originDarkHovered,
-                      } = generateColorsByOrigin({
-                        origin: color.origin,
-                        darkMode: true,
-                        customBgColor: col,
-                      });
-
-                      setOriginColor({
-                        ...color,
-                        originDarkDefault,
-                        originDarkAccessible,
-                        originDarkPressed,
-                        originDarkHovered,
-                      });
+                      setOriginColor(
+                        generateOnColorForBackgroundChange(color, true, col),
+                      );
                     }
                   }}
                 />
