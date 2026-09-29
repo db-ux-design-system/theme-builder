@@ -12,68 +12,61 @@ const addTransparentColors = (
   speakingNames: SpeakingName[],
   color: FigmaColorSet,
 ) => {
-  const transparentFullDefault: any = speakingNames.find(({ name }) =>
-    name.includes("bg-basic-transparent-full-default"),
-  )!;
-  const transparentSemiDefault: any = speakingNames.find(({ name }) =>
-    name.includes("bg-basic-transparent-semi-default"),
-  )!;
-  const transparentFullHovered: any = speakingNames.find(({ name }) =>
-    name.includes("bg-basic-transparent-full-hovered"),
-  )!;
-  const transparentFullPressed: any = speakingNames.find(({ name }) =>
-    name.includes("bg-basic-transparent-full-pressed"),
-  )!;
-  const transparentSemiHovered: any = speakingNames.find(({ name }) =>
-    name.includes("bg-basic-transparent-semi-hovered"),
-  )!;
-  const transparentSemiPressed: any = speakingNames.find(({ name }) =>
-    name.includes("bg-basic-transparent-semi-pressed"),
-  )!;
+  const findByName = (needle: string): SpeakingName | undefined =>
+    speakingNames.find(({ name }) => name.includes(needle));
 
-  for (const { def, key, pressed, hovered } of [
+  const groups: {
+    key: string;
+    def?: SpeakingName;
+    hovered?: SpeakingName;
+    pressed?: SpeakingName;
+  }[] = [
     {
       key: "full",
-      def: transparentFullDefault,
-      hovered: transparentFullHovered,
-      pressed: transparentFullPressed,
+      def: findByName("bg-basic-transparent-full-default"),
+      hovered: findByName("bg-basic-transparent-full-hovered"),
+      pressed: findByName("bg-basic-transparent-full-pressed"),
     },
     {
       key: "semi",
-      def: transparentSemiDefault,
-      hovered: transparentSemiHovered,
-      pressed: transparentSemiPressed,
+      def: findByName("bg-basic-transparent-semi-default"),
+      hovered: findByName("bg-basic-transparent-semi-hovered"),
+      pressed: findByName("bg-basic-transparent-semi-pressed"),
     },
-  ]) {
-    for (const mode of ["light", "dark"]) {
-      const transparency =
-        mode === "light" ? def.transparencyLight : def.transparencyDark;
-      const transparencyHover =
-        mode === "light"
-          ? hovered.transparencyLight
-          : hovered.transparencyDark;
-      const transparencyPressed =
-        mode === "light"
-          ? pressed.transparencyLight
-          : pressed.transparencyDark;
-      color[`transparent-${key}-${mode}-default`] = {
-        $type: "color",
-        $value: chroma(color[def[mode]].$value)
-          .alpha((100 - transparency) / 100)
-          .hex("rgba"),
-      };
-      color[`transparent-${key}-${mode}-hovered`] = {
-        $type: "color",
-        $value: chroma(color[hovered[mode]].$value)
-          .alpha((100 - transparencyHover) / 100)
-          .hex("rgba"),
-      };
-      color[`transparent-${key}-${mode}-pressed`] = {
-        $type: "color",
-        $value: chroma(color[pressed[mode]].$value)
-          .alpha((100 - transparencyPressed) / 100)
-          .hex("rgba"),
-      };
+  ];
+
+  // Build a transparent color from a speaking name reference. Returns undefined
+  // when the referenced base color or its transparency value is missing, so a
+  // custom theme with incomplete data does not crash the whole export.
+  const buildAlpha = (
+    source: SpeakingName,
+    mode: "light" | "dark",
+  ): string | undefined => {
+    const baseColor = color[source[mode]];
+    const transparency =
+      mode === "light" ? source.transparencyLight : source.transparencyDark;
+    if (!baseColor || transparency === undefined) {
+      return undefined;
+    }
+    return chroma(baseColor.$value)
+      .alpha((100 - transparency) / 100)
+      .hex("rgba");
+  };
+
+  const setToken = (name: string, value: string | undefined) => {
+    if (value) {
+      color[name] = { $type: "color", $value: value };
+    }
+  };
+
+  for (const { key, def, hovered, pressed } of groups) {
+    if (!def || !hovered || !pressed) {
+      continue;
+    }
+    for (const mode of ["light", "dark"] as const) {
+      setToken(`transparent-${key}-${mode}-default`, buildAlpha(def, mode));
+      setToken(`transparent-${key}-${mode}-hovered`, buildAlpha(hovered, mode));
+      setToken(`transparent-${key}-${mode}-pressed`, buildAlpha(pressed, mode));
     }
   }
 };
@@ -94,41 +87,26 @@ export const getFigmaColors = (
       };
     });
 
-    color = {
-      ...color,
-      "origin-light-default": {
-        $type: "color",
-        $value: value.originLightDefault!,
-      },
-      "origin-light-hovered": {
-        $type: "color",
-        $value: value.originLightHovered!,
-      },
-      "origin-light-pressed": {
-        $type: "color",
-        $value: value.originLightPressed!,
-      },
-      "on-origin-light-default": {
-        $type: "color",
-        $value: value.onOriginLightDefault!,
-      },
-      "origin-dark-default": {
-        $type: "color",
-        $value: value.originDarkDefault!,
-      },
-      "origin-dark-hovered": {
-        $type: "color",
-        $value: value.originDarkHovered!,
-      },
-      "origin-dark-pressed": {
-        $type: "color",
-        $value: value.originDarkPressed!,
-      },
-      "on-origin-dark-default": {
-        $type: "color",
-        $value: value.onOriginDarkDefault!,
-      },
+    // Only include origin tokens that actually have a value. These fields are
+    // optional on DefaultColorType, so a custom theme may not provide them and
+    // we must not emit tokens with an undefined value.
+    const originTokens: Record<string, string | undefined> = {
+      "origin-light-default": value.originLightDefault,
+      "origin-light-hovered": value.originLightHovered,
+      "origin-light-pressed": value.originLightPressed,
+      "on-origin-light-default": value.onOriginLightDefault,
+      "origin-dark-default": value.originDarkDefault,
+      "origin-dark-hovered": value.originDarkHovered,
+      "origin-dark-pressed": value.originDarkPressed,
+      "on-origin-dark-default": value.onOriginDarkDefault,
     };
+
+    color = { ...color };
+    for (const [tokenName, tokenValue] of Object.entries(originTokens)) {
+      if (tokenValue) {
+        color[tokenName] = { $type: "color", $value: tokenValue };
+      }
+    }
 
     addTransparentColors(speakingNames, color);
 
