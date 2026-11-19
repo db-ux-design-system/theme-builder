@@ -86,16 +86,6 @@ const getHoverPressedColors = (onOrigin: string, originColor: string) => {
   pressedHsluv.hsluvToHex();
   const pressedColor = pressedHsluv.hex;
 
-  console.log(
-    originColor,
-    originLuminance,
-    onOrigin,
-    onOriginHsluv.hsluv_l,
-    tryDarken,
-    hoveredHsluv,
-    pressedHsluv,
-  );
-
   return { hoverColor, pressedColor };
 };
 
@@ -222,5 +212,47 @@ export const generateColorsByOrigin = ({
     ...backgroundColors,
     origin,
     onOriginLightDefault: onOrigin,
+  };
+};
+
+/**
+ * Recomputes a single mode's origin background shades together with the
+ * matching on-origin color after the user changes that mode's background color.
+ *
+ * The on-origin color is derived from the background color to guarantee a valid
+ * contrast. It therefore has to be refreshed whenever the background changes.
+ * Previously only the background shades were applied while the on-origin color
+ * kept its stale value, so the contrast only became correct after manually
+ * clearing the field (see issue #1236).
+ */
+export const generateOnColorForBackgroundChange = (
+  color: DefaultColorType,
+  darkMode: boolean,
+  backgroundColor: string,
+): DefaultColorType => {
+  const generated = generateColorsByOrigin({
+    origin: color.origin,
+    darkMode,
+    customBgColor: backgroundColor,
+  });
+
+  if (darkMode) {
+    return {
+      ...color,
+      originDarkDefault: generated.originDarkDefault,
+      originDarkAccessible: generated.originDarkAccessible,
+      originDarkHovered: generated.originDarkHovered,
+      originDarkPressed: generated.originDarkPressed,
+      onOriginDarkDefault: generated.onOriginDarkDefault,
+    };
+  }
+
+  return {
+    ...color,
+    originLightDefault: generated.originLightDefault,
+    originLightAccessible: generated.originLightAccessible,
+    originLightHovered: generated.originLightHovered,
+    originLightPressed: generated.originLightPressed,
+    onOriginLightDefault: generated.onOriginLightDefault,
   };
 };
